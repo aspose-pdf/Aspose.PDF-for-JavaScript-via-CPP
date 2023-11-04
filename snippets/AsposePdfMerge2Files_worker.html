@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8">
+  <title>Aspose.PDF for JavaScript via C++</title>
+</head>
+
+<body>
+  <label for="fileMerge">Choose two PDF-files to merge</label>
+  <input type="file" id="fileMerge" multiple accept="application/pdf" onchange="ffileMerge(event)">
+  <br>
+  <pre id="output">please wait for loading...</pre>
+</body>
+
+<script type="text/javascript">
+/// [Code snippet]
+  /*Create Web Worker*/
+  const AsposePDFWebWorker = new Worker("AsposePDFforJS.js");
+  AsposePDFWebWorker.onerror = evt => console.log(`Error from Web Worker: ${evt.message}`);
+  AsposePDFWebWorker.onmessage = evt => document.getElementById('output').textContent = 
+    (evt.data == 'ready') ? 'loaded!' :
+      (evt.data.json.errorCode == 0) ? 
+        `Result:\n${(evt.data.operation == 'AsposePdfPrepare') ? 
+                    fileProcess('AsposePdfMerge2Files', evt.data.json.optdata[0].file, {"fileName2": evt.data.json.fileNameResult}) ?? 'wait please...' : 
+                    DownloadFile(evt.data.json.fileNameResult, "application/pdf", evt.data.params[0]) /*AsposePdfMerge2Files*/
+                   }` :
+        `Error: ${evt.data.json.errorText}`;
+
+  /*Event handler. Only two files are merged. If only one file is selected, then use it. For the second file you need to perform AsposePdfPrepare */
+  const ffileMerge = evt => fileProcess('AsposePdfPrepare',  evt.target.files[(evt.target.files.length == 1) ? 0 : 1], [{"operation": 'AsposePdfMerge2Files', "file": evt.target.files[0]}])
+  /* Ask Web Worker */
+  const fileProcess = (operation, ffile, optdata) => {
+    const file_reader = new FileReader();
+    file_reader.onload = event => {
+      if (operation == 'AsposePdfPrepare')
+        /*Save the BLOB in the Memory FS for processing*/
+        return AsposePDFWebWorker.postMessage({ "operation": operation, "params": [event.target.result, ffile.name, optdata] }, [event.target.result]);
+      else if (operation == 'AsposePdfMerge2Files')
+        /*Merge two PDF-files*/
+        return AsposePDFWebWorker.postMessage({ "operation": operation, "params": [event.target.result, undefined, ffile.name, (optdata === undefined) ? ffile.name : optdata.fileName2, `Result${operation}.pdf`] }, [event.target.result]);
+    }
+    file_reader.readAsArrayBuffer(ffile);
+  }
+/// [Code snippet]
+
+  /*Make a link to download the result file*/
+  const DownloadFile = (filename, mime, content) => {
+      mime = mime || "application/octet-stream";
+      var link = document.createElement("a"); 
+      link.href = URL.createObjectURL(new Blob([content], {type: mime}));
+      link.download = filename;
+      link.innerHTML = "Click here to download the file " + filename;
+      document.body.appendChild(link); 
+      document.body.appendChild(document.createElement("br"));
+      return filename;
+    }
+</script>
+
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8">
+  <title>Aspose.PDF for JavaScript via C++</title>
+</head>
+
+<body>
+  <button type="button" onclick="onAsposePdfAbout()">About</button>
+  <br>
+  <pre id="output">please wait for loading...</pre>
+</body>
+
+<script type="text/javascript">
+/// [Code snippet]
+  /*Create Web Worker*/
+  const AsposePDFWebWorker = new Worker("AsposePDFforJS.js");
+  AsposePDFWebWorker.onerror = evt => console.log(`Error from Web Worker: ${evt.message}`);
+  AsposePDFWebWorker.onmessage = evt => document.getElementById('output').textContent = 
+    (evt.data == 'ready') ? 'loaded!' :
+      (evt.data.json.errorCode == 0) ? evt.data.json.producer : `Error: ${evt.data.json.errorText}`; 
+
+  /*Event handler*/
+  const onAsposePdfAbout = e => {
+    /*Get info about Product - Ask Web Worker*/
+    AsposePDFWebWorker.postMessage({ "operation": 'AsposePdfAbout', "params": [] }, []);
+  };
+/// [Code snippet]
+</script>
+
+</html>

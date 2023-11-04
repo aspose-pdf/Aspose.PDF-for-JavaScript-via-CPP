@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8">
+  <title>Aspose.PDF for JavaScript via C++</title>
+</head>
+
+<body>
+  <label for="fileImg">1. Choose a background image</label>
+  <input type="file" id="fileImg" accept="image/*" onchange="ffileImage(event)">
+  <br>
+  <label for="fileAddBackgroundImage">2. Choose a PDF-file to add background image</label>
+  <input type="file" id="fileAddBackgroundImage" accept="application/pdf" onchange="ffileAddBackgroundImage(event)">
+  <br>
+  <pre id="output"></pre>
+</body>
+<!-- Load and initiate Aspose.PDF for JavaScript via C++ -->
+<script type="text/javascript" async src="AsposePDFforJS.js"></script>
+<script type="text/javascript">
+/// [Code snippet]
+  /*Set the default image filename*/
+  var fileBackgroundImage = "/Aspose.jpg";
+
+  var ffileImage = function (e) {
+    const file_reader = new FileReader();
+    /*Set the image filename*/
+    fileBackgroundImage = e.target.files[0].name;
+    file_reader.onload = (event) => {
+      /*Save the BLOB in the Memory FS for processing*/
+      AsposePdfPrepare(event.target.result, fileBackgroundImage);
+    };
+    file_reader.readAsArrayBuffer(e.target.files[0]);
+  };
+
+  var ffileAddBackgroundImage = function (e) {
+    const file_reader = new FileReader();
+    file_reader.onload = (event) => {
+      /*Add background image to a PDF-file and save the "ResultBackgroundImage.pdf"*/
+      const json = AsposePdfAddBackgroundImage(event.target.result, e.target.files[0].name, fileBackgroundImage, "ResultBackgroundImage.pdf");
+      if (json.errorCode == 0) document.getElementById('output').textContent = json.fileNameResult;
+      else document.getElementById('output').textContent = json.errorText;
+      /*Make a link to download the result file*/
+      DownloadFile(json.fileNameResult, "application/pdf");
+    };
+    file_reader.readAsArrayBuffer(e.target.files[0]);
+  };
+/// [Code snippet]
+</script>
+
+</html>

@@ -1,0 +1,25 @@
+{
+  "name": "aspose-pdf-js",
+  "description": "Aspose.PDF for Javascript via C++",
+  "version": "23.10.0",
+  "main": "AsposePDFforJS.js",
+  "files": [
+    "settings.json.default",
+    "AsposePDFforJS.js",
+    "AsposePDFforJS.wasm.zip",
+    "license/*",
+    "fonts/*",
+    "tools/*"
+  ],
+  "scripts": {
+    "postinstall": "node ./tools/postinstall.js"
+  },
+  "keywords": [
+    "pdf"
+  ],
+  "author": "Aspose.PDF for C++ Team",
+  "license": "See Licence in LICENCE.md",
+  "dependencies": {
+    "adm-zip": "^0.5.10"
+  }
+}

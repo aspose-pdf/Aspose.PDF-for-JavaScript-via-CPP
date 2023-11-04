@@ -1,0 +1,20 @@
+{
+    "fileLic": "aspose.enc",
+    "files": [
+       {
+         "fileName": "Aspose.jpg",
+         "fileFrom": "",
+         "fileTo": "/"
+       },
+       {
+         "fileName": "favicon.ico",
+         "fileFrom": "",
+         "fileTo": "/"
+       }
+    ],
+    "fontsDir": "./fonts/",
+    "fontsList": [
+      "arial.ttf",
+      "times.ttf"
+    ]
+}

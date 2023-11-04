@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8">
+  <title>Aspose.PDF for JavaScript via C++</title>
+</head>
+
+<body>
+  <label for="fileToEPUB">Choose a PDF-file to convert to ePub</label>
+  <input type="file" id="fileToEPUB" accept="application/pdf" onchange="ffileToEPUB(event)">
+  <br>
+  <pre id="output"></pre>
+</body>
+<!-- Load and initiate Aspose.PDF for JavaScript via C++ -->
+<script type="text/javascript" async src="AsposePDFforJS.js"></script>
+<script type="text/javascript">
+/// [Code snippet]
+  var ffileToEPUB = function (e) {
+    const file_reader = new FileReader();
+    file_reader.onload = (event) => {
+      /*Convert a PDF-file to EPUB and save the "ResultPDFtoEPUB.epub"*/
+      const json = AsposePdfToEPUB(event.target.result, e.target.files[0].name, "ResultPDFtoEPUB.epub");
+      if (json.errorCode == 0) document.getElementById('output').textContent = json.fileNameResult;
+      else document.getElementById('output').textContent = json.errorText;
+      /*Make a link to download the result file*/
+      DownloadFile(json.fileNameResult, "application/epub+zip");
+    }
+    file_reader.readAsArrayBuffer(e.target.files[0]);
+  }
+/// [Code snippet]
+</script>
+
+</html>

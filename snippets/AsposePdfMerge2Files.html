@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8">
+  <title>Aspose.PDF for JavaScript via C++</title>
+</head>
+
+<body>
+  <label for="fileMerge">Choose two PDF-files to merge</label>
+  <input type="file" id="fileMerge" multiple accept="application/pdf" onchange="ffileMerge(event)">
+  <br>
+  <pre id="output"></pre>
+</body>
+<!-- Load and initiate Aspose.PDF for JavaScript via C++ -->
+<script type="text/javascript" async src="AsposePDFforJS.js"></script>
+<script type="text/javascript">
+/// [Code snippet]
+  var ffileMerge = function (e) {
+    const file_reader = new FileReader();
+    function readFile(index) {
+      /*Only two files*/
+      if (index >= e.target.files.length || index >= 2) {
+        /*Merge two PDF-files and save the "ResultMerge.pdf"*/
+        const json = AsposePdfMerge2Files(undefined, undefined, e.target.files[0].name, e.target.files[1].name, "ResultMerge.pdf");
+        if (json.errorCode == 0) document.getElementById('output').textContent = json.fileNameResult;
+        else document.getElementById('output').textContent = json.errorText;
+        /*Make a link to download the result file*/
+        DownloadFile(json.fileNameResult, "application/pdf");
+        return;
+      }
+      const file = e.target.files[index];
+      file_reader.onload = function (event) {
+        /*Save the BLOB in the Memory FS for processing*/
+        AsposePdfPrepare(event.target.result, file.name);
+        readFile(index + 1)
+      }
+      file_reader.readAsArrayBuffer(file);
+    }
+    readFile(0);
+  }
+/// [Code snippet]
+</script>
+
+</html>

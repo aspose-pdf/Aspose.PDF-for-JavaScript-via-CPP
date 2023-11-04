@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8">
+  <title>Aspose.PDF for JavaScript via C++</title>
+</head>
+
+<body>
+  <button type="button" onclick="onAsposePdfAbout()">About</button>
+  <br>
+  <pre id="output"></pre>
+</body>
+<!-- Load and initiate Aspose.PDF for JavaScript via C++ -->
+<script type="text/javascript" async src="AsposePDFforJS.js"></script>
+<script type="text/javascript">
+/// [Code snippet]
+  var onAsposePdfAbout = function () {
+    /*Get info about Product*/
+    const json = AsposePdfAbout();
+    /* JSON
+    Product name:       json.product
+    Product family:     json.family
+    Product version:    json.version
+    Date release:       json.releasedate
+    Full name/producer: json.producer
+    */
+    if (json.errorCode == 0) document.getElementById('output').textContent = "JSON:\n" + JSON.stringify(json, null, 4);
+    else document.getElementById('output').textContent = json.errorText;
+  }
+/// [Code snippet]
+</script>
+
+</html>

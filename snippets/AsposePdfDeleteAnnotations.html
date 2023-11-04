@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8">
+  <title>Aspose.PDF for JavaScript via C++</title>
+</head>
+
+<body>
+  <label for="filePdfDeleteAnnotations">Choose a PDF-file to delete annotations</label>
+  <input type="file" id="filePdfDeleteAnnotations" accept="application/pdf" onchange="ffilePdfDeleteAnnotations(event)">
+  <br>
+  <pre id="output"></pre>
+</body>
+<!-- Load and initiate Aspose.PDF for JavaScript via C++ -->
+<script type="text/javascript" async src="AsposePDFforJS.js"></script>
+<script type="text/javascript">
+/// [Code snippet]
+  var ffilePdfDeleteAnnotations = function (e) {
+    const file_reader = new FileReader();
+    file_reader.onload = (event) => {
+      /*Delete annotations from a PDF-file and save the "ResultPdfDeleteAnnotations.pdf"*/
+      const json = AsposePdfDeleteAnnotations(event.target.result, e.target.files[0].name, "ResultPdfDeleteAnnotations.pdf");
+      if (json.errorCode == 0) document.getElementById('output').textContent = json.fileNameResult;
+      else document.getElementById('output').textContent = json.errorText;
+      /*Make a link to download the result file*/
+      DownloadFile(json.fileNameResult, "application/pdf");
+    };
+    file_reader.readAsArrayBuffer(e.target.files[0]);
+  };
+/// [Code snippet]
+</script>
+
+</html>

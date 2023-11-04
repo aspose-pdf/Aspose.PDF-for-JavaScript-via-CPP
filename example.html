@@ -1,0 +1,850 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8">
+  <title>Aspose.PDF for JavaScript via C++</title>
+  <style>
+    body{font-family:Arial}
+    .tab,.tabcontent{border:1px solid #ccc}.tab{overflow:hidden;background-color:#2871e6}.tab button{background-color:inherit;float:left;border:none;outline:0;cursor:pointer;padding:14px 16px;transition:.3s;font-size:17px}.tab button:hover{background-color:#1e90ff;color:#b0c4de}.tab button.active{background-color:#191970;color:#fff;font-weight:700}.tabcontent{display:none;padding:6px 12px;border-top:none}
+    label{display:inline-block;width:180px;text-align:right;padding-top:10px;cursor:pointer;text-decoration:underline}.tooltip{visibility:hidden;width:240px;background-color:navy;color:#fff;text-align:center;border-radius:6px;padding:5px 0;position:absolute;z-index:1}label:hover{color:#0075b2;font-weight:700}label:hover .tooltip{visibility:visible}
+    input[type=file]{width:250px}.column{float:left;width:450px}.row:after{content:"";display:table;clear:both}
+  </style>
+</head>
+
+<body>
+  <h2>Aspose.PDF for JavaScript via C++</h2>
+
+  <div class="tab">
+    <button class="tablinks" onclick="openCategory(event, 'Convert')" id="defaultOpen">Convert from PDF</button>
+    <button class="tablinks" onclick="openCategory(event, 'Organize')">Organize PDF</button>
+    <button class="tablinks" onclick="openCategory(event, 'Metadata')">Metadata PDF</button>
+    <button class="tablinks" onclick="openCategory(event, 'Security')">Security PDF</button>
+  </div>
+
+  <div id="Convert" class="tabcontent" style="background-color:#F0F8FF;border-bottom-left-radius:4px;border-bottom-right-radius:4px">
+    <div class="row">
+      <div class="column">
+        <label for="fileToJpg">JPG<span class="tooltip">Convert a PDF-file to JPG</span></label>
+        <input type="file" id="fileToJpg" accept="application/pdf" onchange="ffileToJpg(event)">
+      </div>
+      <div class="column">
+        <label for="fileToPng">PNG<span class="tooltip">Convert a PDF-file to PNG</span></label>
+        <input type="file" id="fileToPng" accept="application/pdf" onchange="ffileToPng(event)">
+      </div>
+      <div class="column">
+        <label for="filePagesToTiff">TIFF<span class="tooltip">Convert a PDF-file to TIFF</span></label>
+        <input type="file" id="filePagesToTiff" accept="application/pdf" onchange="ffilePagesToTiff(event)">
+      </div>
+      <div class="column">
+        <label for="fileToBmp">BMP<span class="tooltip">Convert a PDF-file to BMP</span></label>
+        <input type="file" id="fileToBmp" accept="application/pdf" onchange="ffileToBmp(event)">
+      </div>
+      <div class="column">
+        <label for="fileToDICOM">DICOM<span class="tooltip">Convert a PDF-file to DICOM</span></label>
+        <input type="file" id="fileToDICOM" accept="application/pdf" onchange="ffileToDICOM(event)">
+      </div>
+      <div class="column">
+        <label for="fileToSvg">SVG<span class="tooltip">Convert a PDF-file to SVG</span></label>
+        <input type="file" id="fileToSvg" accept="application/pdf" onchange="ffileToSvg(event)">
+      </div>
+      <div class="column">
+        <label for="fileToSvgZip">SVG (zip)<span class="tooltip">Convert a PDF-file to SVG(zip)</span></label>
+        <input type="file" id="fileToSvgZip" accept="application/pdf" onchange="ffileToSvgZip(event)">
+      </div>
+      <div class="column">
+        <label for="fileToTeX">TEX<span class="tooltip">Convert a PDF-file to TeX</span></label>
+        <input type="file" id="fileToTeX" accept="application/pdf" onchange="ffileToTeX(event)">
+      </div>
+      <div class="column">
+        <label for="fileToXps">XPS<span class="tooltip">Convert a PDF-file to Xps</span></label>
+        <input type="file" id="fileToXps" accept="application/pdf" onchange="ffileToXps(event)">
+      </div>
+      <div class="column">
+        <label for="fileToCSV">CSV (extract tables)<span class="tooltip">Convert a PDF-file to CSV (extract tables)</span></label>
+        <input type="file" id="fileToCSV" accept="application/pdf" onchange="ffileToCSV(event)">
+      </div>
+      <div class="column">
+        <label for="fileToTxt">TXT<span class="tooltip">Convert a PDF-file to Txt</span></label>
+        <input type="file" id="fileToTxt" accept="application/pdf" onchange="ffileToTxt(event)">
+      </div>
+      <div class="column">
+        <label for="fileConvertToGrayscale">GRAYSCALE<span class="tooltip">Convert a PDF-file to grayscale</span></label>
+        <input type="file" id="fileConvertToGrayscale" accept="application/pdf" onchange="ffileConvertToGrayscale(event)">
+      </div>
+      <div class="column">
+        <label for="filePdfConvertToPDFA">PDF/A<span class="tooltip">Convert a PDF-file to PDF/A</span></label>
+        <input type="file" id="filePdfConvertToPDFA" accept="application/pdf" onchange="ffilePdfConvertToPDFA(event)">
+      </div>
+      <div class="column">
+        <label for="filePdfAConvertToPDF">PDF from PDF/A<span class="tooltip">Convert a PDF/A-file to PDF</span></label>
+        <input type="file" id="filePdfAConvertToPDF" accept="application/pdf" onchange="ffilePdfAConvertToPDF(event)">
+      </div>
+      <div class="column">
+        <label for="fileToDocX">DOCX<span class="tooltip">Convert a PDF-file to DocX</span></label>
+        <input type="file" id="fileToDocX" accept="application/pdf" onchange="ffileToDocX(event)">
+      </div>
+      <div class="column">
+        <label for="fileToXlsX">XLSX<span class="tooltip">Convert a PDF-file to XlsX</span></label>
+        <input type="file" id="fileToXlsX" accept="application/pdf" onchange="ffileToXlsX(event)">
+      </div>
+      <div class="column">
+        <label for="fileEPUB">EPUB<span class="tooltip">Convert a PDF-file to ePub</span></label>
+        <input type="file" id="fileToEPUB" accept="application/pdf" onchange="ffileToEPUB(event)">
+      </div>
+      <div class="column">
+        <label for="fileToDOC">DOC<span class="tooltip">Convert a PDF-file to Doc</span></label>
+        <input type="file" id="fileToDOC" accept="application/pdf" onchange="ffileToDOC(event)">
+      </div>
+      <div class="column">
+        <label for="fileToPPTX">PPTX<span class="tooltip">Convert a PDF-file to PptX</span></label>
+        <input type="file" id="fileToPPTX" accept="application/pdf" onchange="ffileToPPTX(event)">
+      </div>
+      <div class="column">
+        <label for="fileExtract">EXTRACT TEXT<span class="tooltip">Extract text from a PDF-file</span></label>
+        <input type="file" id="fileExtract" accept="application/pdf" onchange="ffileExtract(event)">
+      </div>
+      <div class="column">
+        <label for="fileExtractImage">EXTRACT IMAGE<span class="tooltip">Extract image from a PDF-file</span></label>
+        <input type="file" id="fileExtractImage" accept="application/pdf" onchange="ffileExtractImage(event)">
+      </div>
+    </div>
+  </div>
+
+  <div id="Organize" class="tabcontent" style="background-color:#F0F8FF;border-bottom-left-radius:4px;border-bottom-right-radius:4px">
+    <div class="row">
+      <div class="column">
+        <label for="fileOptimize">OPTIMIZE<span class="tooltip">Optimize a PDF-file</span></label>
+        <input type="file" id="fileOptimize" accept="application/pdf" onchange="ffileOptimize(event)">
+      </div>
+      <div class="column">
+        <label for="fileMerge">MERGE<span class="tooltip">Merge two PDF-files</span></label>
+        <input type="file" id="fileMerge" multiple accept="application/pdf" onchange="ffileMerge(event)">
+      </div>
+      <div class="column">
+        <label for="fileSplit">SPLIT<span class="tooltip">Split to two PDF-files</span></label>
+        <input type="file" id="fileSplit" accept="application/pdf" onchange="ffileSplit(event)">
+      </div>
+      <div class="column">
+        <label for="fileRotateAllPages">ROTATE<span class="tooltip">Rotate PDF-pages</span></label>
+        <input type="file" id="fileRotateAllPages" accept="application/pdf" onchange="ffileRotateAllPages(event)">
+      </div>
+      <div class="column">
+        <label for="fileDeletePages">DEL PAGES<span class="tooltip">Delete pages from a PDF-file</span></label>
+        <input type="file" id="fileDeletePages" accept="application/pdf" onchange="ffileDeletePages(event)">
+      </div>
+      <div class="column">
+        <label for="fileAddStamp">ADD STAMP<span class="tooltip">Add stamp to a PDF-file</span></label>
+        <input type="file" id="fileAddStamp" accept="application/pdf" onchange="ffileAddStamp(event)">
+      </div>
+      <div class="column">
+        <label for="fileAddImage">ADD IMAGE<span class="tooltip">Add an image to end a PDF-file</span></label>
+        <input type="file" id="fileAddImage" accept="application/pdf" onchange="ffileAddImage(event)">
+      </div>
+      <div class="column">
+        <label for="fileAddPageNum">ADD # PAGE<span class="tooltip">Add page number to a PDF-file</span></label>
+        <input type="file" id="fileAddPageNum" accept="application/pdf" onchange="ffileAddPageNum(event)">
+      </div>
+      <div class="column">
+        <label for="fileAddBackgroundImage">ADD BACKGROUND<span class="tooltip">Add background image to a PDF-file</span></label>
+        <input type="file" id="fileAddBackgroundImage" accept="application/pdf" onchange="ffileAddBackgroundImage(event)">
+      </div>
+      <div class="column">
+        <label for="fileAddTextHeaderFooter">ADD HEADER/FOOTER<span class="tooltip">Add text in Header/Footer of a PDF-file</span></label>
+        <input type="file" id="fileAddTextHeaderFooter" accept="application/pdf" onchange="ffileAddTextHeaderFooter(event)">
+      </div>
+      <div class="column">
+        <label for="filePdfRepair">REPAIR<span class="tooltip">Repair a PDF-file</span></label>
+        <input type="file" id="filePdfRepair" accept="application/pdf" onchange="ffilePdfRepair(event)">
+      </div>
+      <div class="column">
+        <label for="filePdfOptimizeResource">RESOURCE OPTIMIZE<span class="tooltip">Optimize resources of PDF-file</span></label>
+        <input type="file" id="filePdfOptimizeResource" accept="application/pdf" onchange="ffilePdfOptimizeResource(event)">
+      </div>
+      <div class="column">
+        <label for="filePdfSetBackgroundColor">BACKGROUND COLOR<span class="tooltip">Set the background color for the PDF-file</span></label>
+        <input type="file" id="filePdfSetBackgroundColor" accept="application/pdf" onchange="ffilePdfSetBackgroundColor(event)">
+      </div>
+      <div class="column">
+        <label for="filePdfDeleteAnnotations">DEL ANNOTATIONS<span class="tooltip">Delete annotations from a PDF-file</span></label>
+        <input type="file" id="filePdfDeleteAnnotations" accept="application/pdf" onchange="ffilePdfDeleteAnnotations(event)">
+      </div>
+      <div class="column">
+        <label for="filePdfDeleteBookmarks">DEL BOOKMARKS<span class="tooltip">Delete bookmarks from a PDF-file</span></label>
+        <input type="file" id="filePdfDeleteBookmarks" accept="application/pdf" onchange="ffilePdfDeleteBookmarks(event)">
+      </div>
+      <div class="column">
+        <label for="filePdfDeleteAttachments">DEL ATTACHMENTS<span class="tooltip">Delete attachments from a PDF-file</span></label>
+        <input type="file" id="filePdfDeleteAttachments" accept="application/pdf" onchange="ffilePdfDeleteAttachments(event)">
+      </div>
+      <div class="column">
+        <label for="filePdfDeleteImages">DEL IMAGES<span class="tooltip">Delete images from a PDF-file</span></label>
+        <input type="file" id="filePdfDeleteImages" accept="application/pdf" onchange="ffilePdfDeleteImages(event)">
+      </div>
+      <div class="column">
+        <label for="filePdfDeleteJavaScripts">DEL JAVASCRIPTS<span class="tooltip">Delete JavaScripts from a PDF-file</span></label>
+        <input type="file" id="filePdfDeleteJavaScripts" accept="application/pdf" onchange="ffilePdfDeleteJavaScripts(event)">
+      </div>
+    </div>
+  </div>
+
+  <div id="Metadata" class="tabcontent" style="background-color:#F0F8FF;border-bottom-left-radius:4px;border-bottom-right-radius:4px">
+    <div class="row">
+      <div class="column">
+        <label for="filePdfSetInfo">SET INFO<span class="tooltip">Set info (metadata) in a PDF-file</span></label>
+        <input type="file" id="filePdfSetInfo" accept="application/pdf" onchange="ffilePdfSetInfo(event)">
+      </div>
+      <div class="column">
+        <label for="filePdfGetInfo">GET INFO<span class="tooltip">Get info (metadata) from a PDF-file</span></label>
+        <input type="file" id="filePdfGetInfo" accept="application/pdf" onchange="ffilePdfGetInfo(event)">
+      </div>
+      <div class="column">
+        <label for="filePdfGetAllFonts">GET FONTS<span class="tooltip">Get list fonts from a PDF-file</span></label>
+        <input type="file" id="filePdfGetAllFonts" accept="application/pdf" onchange="ffilePdfGetAllFonts(event)">
+      </div>
+      <div class="column">
+        <label for="filePdfRemoveMetadata">REMOVE META<span class="tooltip">Remove metadata from a PDF-file</span></label>
+        <input type="file" id="filePdfRemoveMetadata" accept="application/pdf" onchange="ffilePdfRemoveMetadata(event)">
+      </div>
+    </div>
+  </div>
+
+  <div id="Security" class="tabcontent" style="background-color:#F0F8FF;border-bottom-left-radius:4px;border-bottom-right-radius:4px">
+    <div class="row">
+      <div class="column">
+        <label for="fileEncrypt">ENCRYPT<span class="tooltip">Encrypt a PDF-file</span></label>
+        <input type="file" id="fileEncrypt" accept="application/pdf" onchange="ffileEncrypt(event)">
+      </div>
+      <div class="column">
+        <label for="fileDecrypt">DECRYPT<span class="tooltip">Decrypt a PDF-file</span></label>
+        <input type="file" id="fileDecrypt" accept="application/pdf" onchange="ffileDecrypt(event)">
+      </div>
+      <div class="column">
+        <label for="fileSignPKCS7">SIGN<span class="tooltip">Sign a PDF-file with digital signatures</span></label>
+        <input type="file" id="fileSignPKCS7" accept="application/pdf" onchange="ffileSignPKCS7(event)">
+      </div>
+      <div class="column">
+        <label for="filePdfChangePassword">CHANGE PSW<span class="tooltip">Change passwords of the PDF-file</span></label>
+        <input type="file" id="filePdfChangePassword" accept="application/pdf" onchange="ffilePdfChangePassword(event)">
+      </div>
+    </div>
+  </div>
+
+  <pre id="output" style="width:100%;background-color:#F5F5F5;border-radius:4px"></pre>
+
+</body>
+
+<script type="text/javascript" async src="AsposePDFforJS.js" onload="onloadAsposePDFforJS();"></script>
+<script type="text/javascript">
+
+  var onloadAsposePDFforJS = function () {
+    var Module_onRuntimeInitialized = Module['onRuntimeInitialized'];
+    Module['onRuntimeInitialized'] = function() {
+        console.log('AsposePDFforJS has loaded');
+        Module_onRuntimeInitialized();
+        //Key PKCS7 for test, converted to Base64, with "Pa$$w0rd2023" password
+        const test_pfx = "data:application/octet-stream;base64,MIIEcQIBAzCCBDcGCSqGSIb3DQEHAaCCBCgEggQkMIIEIDCCAj8GCSqGSIb3DQEHBqCCAjAwggIsAgEAMIICJQYJKoZIhvcNAQcBMBwGCiqGSIb3DQEMAQYwDgQI4tjRHb+OMLsCAggAgIIB+OAPdXDmh+6qTyjHkumo2euCw4EvRZ8qSha/AAWYespZs8mA9dInLWM33HeDqktHEcZoPf/CCWqQopRA6RPFAYIn9ioR8s3Phd3LmoMPb52SKJMvWjRGRppLyo4gCNZfv37duV8+mKTSyDW1wrtHsZnvLlUHmy8+OcG8zsAAX6YwHTMkafllpRKkB0kmO1boSvHEp5IPsU8u50VpF21OXYNV7D5c4W2O1GrV0a5HD6OyObHJjj+ufPF7nh+qEuPN/b8hm14y+sZPoVSRvwtH+O8VVDxnJWX+y+jGhChLxiYUYRnhBMW6X+cZW9bcpXZIkFdQdPWA1/opOdTguHlXQF1R+JNnUUOtopwX103undyPGl5JGXvLrr6iH2aO1GY1p2Asd1exaQdfwFQynCxlZrKaCc2JBs5Jem5/wWN6rfq+n15tsYvk2gTP+U/icla8wp1NsqqTGOe0dAJNH3kDOwxKVb5gU+fOYbFWI/6iZ3Tdl41W66rE4Gxj937oYJE1KUK3SlxJtL0uK5c3ZN9yMJYdpc9k2HQ1VOssuUKrmpuOcyJhpF4XosHxMyQxPFFVA/TNggb3Dv3cr2Qei+JqF4n4KAqYCY5u0O+y6+R9Ig0L5zCL/n9cWyPyYqqvEH4ICxqUoH05qCJIMdiNlc5w1PYUXKaSRSzK0TCCAdkGCSqGSIb3DQEHAaCCAcoEggHGMIIBwjCCAb4GCyqGSIb3DQEMCgECoIIBhjCCAYIwHAYKKoZIhvcNAQwBAzAOBAgWFTAixF9bPAICCAAEggFgwC4A+R9X2xdbdfz0IKw2f7pe3iJdgLKJPYiUDV2cGfQnM4UuQKu9qIZ3lAzBtQcF09Wy6pwwU63nVHiGZ6y9PunZZ3tIM24I0Ii1Q5PrphvT4z7yXPqI+sv53AhzwpTJ2XHJQRf53PX7V8ujv3k8lfBQ6gYxfFMkrTdZlfiWeoWZSlFMKUzmaRfBFVit5BRUNEgZrySfZxyxULpo+KzQ/b5K0Z69x6Gvj/j21gEkGTEDWhmjECjsPCP+sWDMyB1xOxHimJgmLtSHc7hpdE/xuRBVELxhlFI1lYj3fbWbnMNzeLG+OBaoktbpr9kbsWRM568vLxdV7XZYkaoGEd+SEUTR+Yxyak/DHspkO/o4apjOh24U6GCqfqPl4ucxTMvOiYpobrxPub/sqQPXB0NEsqNPjcYdsT1y1YkYMxO0b1heh8TWat6SYk1dLi1wdV0iGf8LTImqzzUobZNBfrybjzElMCMGCSqGSIb3DQEJFTEWBBRBGCVJ5N72ukaNrJUetg4Rp0/41DAxMCEwCQYFKw4DAhoFAAQU8VT/8VxDX7Sx3p05TO3BNne5YXYECJhmeDAQpwBNAgIIAA==";
+        AsposePdfPrepareBase64(test_pfx,"test.pfx");
+        //Sign: signatureAppearance
+        const sign_png ="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAAAyCAIAAAAlV+npAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAT6SURBVGhD7ZptTFtVGIBbyqUrbddALRA/gtuYEzs2J5sRBQPZcEUgAwvBDQxOUZP5ScwSl/jDfzPxx4wfi3M4rYNVAkwWZygy4w/RkoyxzVkZg4nMNBaQkVKgdP3At56TI8y2XPWe23MTnx/AfeHXk/c8vTcX+eLioux/+JGAv0uTQDDQ7xzAF/SRtqz9Pa8XWcp6x+z4mjISPoadg6crW2vhB02Suqu2Iz8zD83pIdXN+mV6bO+pfSpd6KFSbVDlKWkxi7BfkpQFqapuq/cpp4vrklO2ObfvSUa+bMM9+C/oIElZkCrH3Ln7diSFDBPh6/QJ5KvcWtPu6PzzT6ggPVmQqiOD76/dGkzJuY5HQPqEqUHJaf27O56i50tigYdUbTlSsNo4ual8AY+WwHn0tiaf38NZzceqjBV4KhxS2iySqnsfWI1Hy/Frpx597NZAKAj7NTJ1FU+FQ0qyXuzavyxVkXBNzMHXuk01Wfp1aCIgkpH12aV2y3DTzalajuJ62kCve2Na9rslb+GRoEhDFpypZ754yZAVWFPgxaNInP9uRuHVQrA0Sg0eCYoEZC34FyBVcGcQLVWIa3b15Egi7NTG9HvwSGgkIKux+8CQ92LsVM0M6of75DVr6p7cEn4AogTrsnim6qzNt05ppJQqAtOy/lGq2qo/pZQqAruyZn2zla21PFN1tPyduw134RE12JUFd1VXfQ4+qapf3/B4ThUe0YRRWZ+cb2kdbeaTqg2qzYd2HsQjyrAo68fxn2CteKfKsopbhUeUYU4WpAqe7PinisZjTTSoy4I1gbtKfMEDPqmavpQqZqoIdGW1Ozq3HS0sPr4L9gWPYsInVQmTaQNnboiZKgJFWWAKDtRCwNd7ra+kxbyiL56putAndqoItGQhU5zWb96bsbmQO+f+PrYvnndVo9+qxE8VgYosYsrUoPRlXrmjcMr4cEJsX3Cn7gyOrJiqn/sV4qeKILyspab82ik0zMidARHIl8szjoaED85+dOrXNmZTRRBYVkRTCBCx9ZGwryJL6VJfF377obH7AMupIggpq/liazRTCJ0x7GvMP0R8wamsbquXq718UnW88sO4pIogmCxYkCc+fzYQChYUGyKaQtzki3+qnst+viK7DI/ihJCvwt62H4YDpdKFdr6wGODCLw6i4Xak9n91Q+2/ZY77HVIV4wBCqnqa543qXPvTZxIViXgaJ4Q8hq/k7YP6et0J3e/JuQUdnkYC7ReY4pMqpS8FUhV3U4DwL1nJfkUrF8E7bNDo5cHUqAcQUgUH8ITJGvcDiKDyRjrGZyJ/IFVwrwCpOmR6E4/iDa3X9//RF1OpIgh/U4qoMlZYzcf8Hs7W5OM8ejzlDVOpItCSBfxrX+iu6uNdh+9MycQjNqAoC1jqC04WnsaEnbuqvyPGvxydHrJBv4Iqz/Y9ybL0qJ99AJupItDdLETZBlNXbQc82X19Yl42Hmu/2EwVQQxZQH5m3oq+yAMga6kiiCQLiO0LperlnFdhDfGIPcRo1lJ6x+wlLeZwv3YnyzJwv1CqcnUPflP/JZsHECHeZiH+2i/rvG/UgIaQKniohs9Nlk0BYm8W4vLklSJLqVvhur8wxemadl6WnSw7aVpfjH/NKvGRBSBfrtnwSXwtv/HgjjfQnGXiJgtAvrJS1zKeKkI8ZQHgS5Okvl13G75mmzjLkhIy2R/qB+VUhKQ5zAAAAABJRU5ErkJggg==";
+        AsposePdfPrepareBase64(sign_png,"sign.png");
+        //Get info about Product
+        const json = AsposePdfAbout();
+        if (json.errorCode == 0) document.getElementById('output').textContent = json.producer;
+        else document.getElementById('output').textContent = json.errorText;
+    }
+  }
+
+  var ffileExtract = function (e) {
+    const file_reader = new FileReader();
+    file_reader.onload = (event) => {
+      const json = AsposePdfExtractText(event.target.result, e.target.files[0].name);
+      if (json.errorCode == 0) document.getElementById('output').textContent = json.extractText;
+      else document.getElementById('output').textContent = json.errorText;
+    }
+    file_reader.readAsArrayBuffer(e.target.files[0]);
+  }
+
+  var ffileOptimize = function (e) {
+    const file_reader = new FileReader();
+    file_reader.onload = (event) => {
+      const json = AsposePdfOptimize(event.target.result, e.target.files[0].name, "ResultOptimize.pdf");
+      if (json.errorCode == 0) document.getElementById('output').textContent = json.fileNameResult;
+      else document.getElementById('output').textContent = json.errorText;
+      DownloadFile(json.fileNameResult, "application/pdf");
+    }
+    file_reader.readAsArrayBuffer(e.target.files[0]);
+  }
+
+  var ffileAddStamp = function (e) {
+    const file_reader = new FileReader();
+    file_reader.onload = (event) => {
+      const json = AsposePdfAddStamp(event.target.result, e.target.files[0].name, "/Aspose.jpg", 0, 5, 5, 40, 40, Module.Rotation.on270, 0.5, "ResultStamp.pdf");
+      if (json.errorCode == 0) document.getElementById('output').textContent = json.fileNameResult;
+      else document.getElementById('output').textContent = json.errorText;
+      DownloadFile(json.fileNameResult, "application/pdf");
+    }
+    file_reader.readAsArrayBuffer(e.target.files[0]);
+  }
+
+  var ffileAddImage = function (e) {
+    const file_reader = new FileReader();
+    file_reader.onload = (event) => {
+      const json = AsposePdfAddImage(event.target.result, e.target.files[0].name, "/Aspose.jpg", "ResultImage.pdf");
+      if (json.errorCode == 0) document.getElementById('output').textContent = json.fileNameResult;
+      else document.getElementById('output').textContent = json.errorText;
+      DownloadFile(json.fileNameResult, "application/pdf");
+    }
+    file_reader.readAsArrayBuffer(e.target.files[0]);
+  }
+
+  var ffileSplit = function (e) {
+    const file_reader = new FileReader();
+    file_reader.onload = (event) => {
+      const pageToSplit = 1;
+      const json = AsposePdfSplit2Files(event.target.result, e.target.files[0].name, pageToSplit, "ResultSplit1.pdf", "ResultSplit2.pdf");
+      if (json.errorCode == 0) document.getElementById('output').textContent = e.target.files[0].name + " split: " + json.fileNameResult1 + ", " + json.fileNameResult2;
+      else document.getElementById('output').textContent = json.errorText;
+      DownloadFile(json.fileNameResult1, "application/pdf");
+      DownloadFile(json.fileNameResult2, "application/pdf");
+    }
+    file_reader.readAsArrayBuffer(e.target.files[0]);
+  }
+
+  var ffileMerge = function (e) {
+    const file_reader = new FileReader();
+    function readFile(index) {
+      if (index >= e.target.files.length || index >= 2) {
+        const json = AsposePdfMerge2Files(undefined, undefined, e.target.files[0].name, e.target.files[1].name, "ResultMerge.pdf");
+        if (json.errorCode == 0) document.getElementById('output').textContent = json.fileNameResult;
+        else document.getElementById('output').textContent = json.errorText;
+        DownloadFile(json.fileNameResult, "application/pdf");
+        return;
+      }
+      const file = e.target.files[index];
+      file_reader.onload = function (event) {
+        AsposePdfPrepare(event.target.result, file.name);
+        readFile(index + 1)
+      }
+      file_reader.readAsArrayBuffer(file);
+    }
+    readFile(0);
+  }
+
+  var ffileDecrypt = function (e) {
+    const file_reader = new FileReader();
+    file_reader.onload = (event) => {
+      const json = AsposePdfDecrypt(event.target.result, e.target.files[0].name, "owner", "ResultDecrypt.pdf");
+      if (json.errorCode == 0) document.getElementById('output').textContent = json.fileNameResult;
+      else document.getElementById('output').textContent = json.errorText;
+      DownloadFile(json.fileNameResult, "application/pdf");
+    }
+    file_reader.readAsArrayBuffer(e.target.files[0]);
+  }
+
+  var ffileEncrypt = function (e) {
+    const file_reader = new FileReader();
+    file_reader.onload = (event) => {
+      const json = AsposePdfEncrypt(event.target.result, e.target.files[0].name, "user", "owner", Module.Permissions.PrintDocument, Module.CryptoAlgorithm.RC4x40, "ResultEncrypt.pdf");
+      if (json.errorCode == 0) document.getElementById('output').textContent = json.fileNameResult;
+      else document.getElementById('output').textContent = json.errorText;
+      DownloadFile(json.fileNameResult, "application/pdf");
+    }
+    file_reader.readAsArrayBuffer(e.target.files[0]);
+  }
+
+  var ffileToJpg = function (e) {
+    const file_reader = new FileReader();
+    file_reader.onload = (event) => {
+      const json = AsposePdfPagesToJpg(event.target.result, e.target.files[0].name, "ResultPdfToJpg{0:D2}.jpg", 150);
+      if (json.errorCode == 0) {
+        document.getElementById('output').textContent = "Files(pages) count: " + json.filesCount.toString();
+        for (let fileIndex = 0; fileIndex < json.filesCount; fileIndex++) DownloadFile(json.filesNameResult[fileIndex], "image/jpeg");
+      }
+      else document.getElementById('output').textContent = json.errorText;
+    }
+    file_reader.readAsArrayBuffer(e.target.files[0]);
+  }
+
+  var ffileToPng = function (e) {
+    const file_reader = new FileReader();
+    file_reader.onload = (event) => {
+      const json = AsposePdfPagesToPng(event.target.result, e.target.files[0].name, "ResultPdfToPng{0:D2}.png", 150);
+      if (json.errorCode == 0) {
+        document.getElementById('output').textContent = "Files(pages) count: " + json.filesCount.toString();
+        for (let fileIndex = 0; fileIndex < json.filesCount; fileIndex++) DownloadFile(json.filesNameResult[fileIndex], "image/png");
+      }
+      else document.getElementById('output').textContent = json.errorText;
+    }
+    file_reader.readAsArrayBuffer(e.target.files[0]);
+  }
+
+  var ffileDeletePages = function (e) {
+    const file_reader = new FileReader();
+    file_reader.onload = (event) => {
+      //string, include number pages with interval: "7, 20, 22, 30-32, 33, 36-40, 46"
+      //const numPages = "1-3";
+      //array, array of number pages
+      const numPages = [1,3];
+      //number, number page
+      //const numPages = 1;
+      //
+      const json = AsposePdfDeletePages(event.target.result, e.target.files[0].name, "ResultDeletePages.pdf", numPages);
+      if (json.errorCode == 0) document.getElementById('output').textContent = json.fileNameResult;
+      else document.getElementById('output').textContent = json.errorText;
+      DownloadFile(json.fileNameResult, "application/pdf");
+    }
+    file_reader.readAsArrayBuffer(e.target.files[0]);
+  }
+
+  var ffileAddPageNum = function (e) {
+    const file_reader = new FileReader();
+    file_reader.onload = (event) => {
+      const json = AsposePdfAddPageNum(event.target.result, e.target.files[0].name, "ResultAddPageNum.pdf");
+      if (json.errorCode == 0) document.getElementById('output').textContent = json.fileNameResult;
+      else document.getElementById('output').textContent = json.errorText;
+      DownloadFile(json.fileNameResult, "application/pdf");
+    }
+    file_reader.readAsArrayBuffer(e.target.files[0]);
+  }
+
+  var ffileAddBackgroundImage = function (e) {
+    const file_reader = new FileReader();
+    file_reader.onload = (event) => {
+      const json = AsposePdfAddBackgroundImage(event.target.result, e.target.files[0].name, "/Aspose.jpg", "ResultBackgroundImage.pdf");
+      if (json.errorCode == 0) document.getElementById('output').textContent = json.fileNameResult;
+      else document.getElementById('output').textContent = json.errorText;
+      DownloadFile(json.fileNameResult, "application/pdf");
+    }
+    file_reader.readAsArrayBuffer(e.target.files[0]);
+  }
+
+  var ffilePdfGetInfo = function (e) {
+    const file_reader = new FileReader();
+    file_reader.onload = (event) => {
+      const json = AsposePdfGetInfo(event.target.result, e.target.files[0].name);
+      if (json.errorCode == 0) document.getElementById('output').textContent = "Title: " + json.title + "\nCreator: " + json.creator + "\nAuthor: " + json.author
+                                                                             + "\nSubject: " + json.subject + "\nKeywords: " + json.keywords
+                                                                             + "\nCreation Date: " + json.creation + "\nModify Date: " + json.mod
+                                                                             + "\nPDF format: " + json.format + "\nPDF version: " + json.version
+                                                                             + "\nPDF is PDF/A: " + json.ispdfa + "\nPDF is PDF/UA: " + json.ispdfua
+                                                                             + "\nPDF permission: " + json.permission + "\nPDF page size: " + json.size 
+                                                                             + "\nPage count: " + json.pagecount;
+      else document.getElementById('output').textContent = json.errorText;
+    }
+    file_reader.readAsArrayBuffer(e.target.files[0]);
+  }
+
+  var ffilePdfSetInfo = function (e) {
+    const file_reader = new FileReader();
+    file_reader.onload = (event) => {
+      //Set PDF info: title, creator, author, subject, keywords, creation (date), mod (date modify)
+      //if not need to set value, use: undefined or "" (empty string)
+      const json = AsposePdfSetInfo(event.target.result, e.target.files[0].name, "Setting PDF Document Information", "", "Aspose", undefined, "Aspose.Pdf, DOM, API", undefined, "2008/12/21 12:15:12", "ResultSetInfo.pdf");
+      if (json.errorCode == 0) document.getElementById('output').textContent = json.fileNameResult;
+      else document.getElementById('output').textContent = json.errorText;
+      DownloadFile(json.fileNameResult, "application/pdf");
+    }
+    file_reader.readAsArrayBuffer(e.target.files[0]);
+  }
+
+  var ffilePdfGetAllFonts = function (e) {
+    const file_reader = new FileReader();
+    file_reader.onload = (event) => {
+      const json = AsposePdfGetAllFonts(event.target.result, e.target.files[0].name);
+      if (json.errorCode == 0) document.getElementById('output').textContent = "JSON:\n" + JSON.stringify(json, null, 4);
+      else document.getElementById('output').textContent = json.errorText;
+    }
+    file_reader.readAsArrayBuffer(e.target.files[0]);
+  }
+
+  var ffileAddTextHeaderFooter = function (e) {
+    const file_reader = new FileReader();
+    file_reader.onload = (event) => {
+      //Set header or footer
+      //if not need to set value, use: undefined or "" (empty string)
+      const json = AsposePdfAddTextHeaderFooter(event.target.result, e.target.files[0].name, "Aspose.PDF for JavaScript via C++", "ASPOSE", "ResultAddHeaderFooter.pdf");
+      if (json.errorCode == 0) document.getElementById('output').textContent = json.fileNameResult;
+      else document.getElementById('output').textContent = json.errorText;
+      DownloadFile(json.fileNameResult, "application/pdf");
+    }
+    file_reader.readAsArrayBuffer(e.target.files[0]);
+  }
+
+  var ffileRotateAllPages = function (e) {
+    const file_reader = new FileReader();
+    file_reader.onload = (event) => {
+      const json = AsposePdfRotateAllPages(event.target.result, e.target.files[0].name, Module.Rotation.on270, "ResultRotation.pdf");
+      if (json.errorCode == 0) document.getElementById('output').textContent = json.fileNameResult;
+      else document.getElementById('output').textContent = json.errorText;
+      DownloadFile(json.fileNameResult, "application/pdf");
+    }
+    file_reader.readAsArrayBuffer(e.target.files[0]);
+  }
+
+  var ffileConvertToGrayscale = function (e) {
+    const file_reader = new FileReader();
+    file_reader.onload = (event) => {
+      const json = AsposePdfConvertToGrayscale(event.target.result, e.target.files[0].name, "ResultConvertToGrayscale.pdf");
+      if (json.errorCode == 0) document.getElementById('output').textContent = json.fileNameResult;
+      else document.getElementById('output').textContent = json.errorText;
+      DownloadFile(json.fileNameResult, "application/pdf");
+    }
+    file_reader.readAsArrayBuffer(e.target.files[0]);
+  }
+
+  var ffileSignPKCS7 = function (e) {
+    const file_reader = new FileReader();
+    file_reader.onload = (event) => {
+      const json = AsposePdfSignPKCS7(event.target.result, e.target.files[0].name, 1, "test.pfx", "Pa$$w0rd2023", 100, 100, 200, 100, "Reason", "Contact", "Location", 1, "sign.png","ResultSignPKCS7.pdf");
+      if (json.errorCode == 0) document.getElementById('output').textContent = json.fileNameResult;
+      else document.getElementById('output').textContent = json.errorText;
+      DownloadFile(json.fileNameResult, "application/pdf");
+    }
+    file_reader.readAsArrayBuffer(e.target.files[0]);
+  }
+
+  var ffilePdfConvertToPDFA = function (e) {
+    const file_reader = new FileReader();
+    file_reader.onload = (event) => {
+      // Convert to PDF/A compliant document. During conversion process, the validation is also performed
+      const json = AsposePdfConvertToPDFA(event.target.result, e.target.files[0].name, Module.PdfFormat.PDF_A_1A, "ResultConvertToPDFA.pdf", "ResultConvertToPDFA.xml");
+      if (json.errorCode == 0)
+      {
+        document.getElementById('output').textContent = json.fileNameResult + "\nLog file (xml format): " + json.fileNameLogResult;
+        DownloadFile(json.fileNameResult, "application/pdf");
+      }
+      else document.getElementById('output').textContent = json.errorText + "\nLog file (xml format): " + json.fileNameLogResult;
+      DownloadFile(json.fileNameLogResult, "application/xml");
+    }
+    file_reader.readAsArrayBuffer(e.target.files[0]);
+  }
+
+  var ffilePdfAConvertToPDF = function (e) {
+    const file_reader = new FileReader();
+    file_reader.onload = (event) => {
+      const json = AsposePdfAConvertToPDF(event.target.result, e.target.files[0].name, "ResultConvertToPDF.pdf");
+      if (json.errorCode == 0) document.getElementById('output').textContent = json.fileNameResult;
+      else document.getElementById('output').textContent = json.errorText;
+      DownloadFile(json.fileNameResult, "application/pdf");
+    }
+    file_reader.readAsArrayBuffer(e.target.files[0]);
+  }
+
+  var ffileToDocX = function (e) {
+    const file_reader = new FileReader();
+    file_reader.onload = (event) => {
+      const json = AsposePdfToDocX(event.target.result, e.target.files[0].name, "ResultPDFtoDocX.docx");
+      if (json.errorCode == 0) document.getElementById('output').textContent = json.fileNameResult;
+      else document.getElementById('output').textContent = json.errorText;
+      DownloadFile(json.fileNameResult, "application/vnd.openxmlformats-officedocument.wordprocessingml.document");
+    }
+    file_reader.readAsArrayBuffer(e.target.files[0]);
+  }
+
+  var ffileToXlsX = function (e) {
+    const file_reader = new FileReader();
+    file_reader.onload = (event) => {
+      const json = AsposePdfToXlsX(event.target.result, e.target.files[0].name, "ResultPDFtoXlsX.xlsx");
+      if (json.errorCode == 0) document.getElementById('output').textContent = json.fileNameResult;
+      else document.getElementById('output').textContent = json.errorText;
+      DownloadFile(json.fileNameResult, "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet");
+    }
+    file_reader.readAsArrayBuffer(e.target.files[0]);
+  }
+
+  var ffileToSvg = function (e) {
+    const file_reader = new FileReader();
+    file_reader.onload = (event) => {
+      const json = AsposePdfPagesToSvg(event.target.result, e.target.files[0].name, "ResultPdfToSvg.svg");
+      if (json.errorCode == 0) {
+        document.getElementById('output').textContent = "Files(pages) count: " + json.filesCount.toString();
+        for (let fileIndex = 0; fileIndex < json.filesCount; fileIndex++) DownloadFile(json.filesNameResult[fileIndex], "image/svg");
+      }
+      else document.getElementById('output').textContent = json.errorText;
+    }
+    file_reader.readAsArrayBuffer(e.target.files[0]);
+  }
+
+  var ffileToSvgZip = function (e) {
+    const file_reader = new FileReader();
+    file_reader.onload = (event) => {
+      const json = AsposePdfPagesToSvgZip(event.target.result, e.target.files[0].name, "ResultPdfToSvgZip.zip");
+      if (json.errorCode == 0) document.getElementById('output').textContent = json.fileNameResult;
+      else document.getElementById('output').textContent = json.errorText;
+      DownloadFile(json.fileNameResult, "application/zip");
+    }
+    file_reader.readAsArrayBuffer(e.target.files[0]);
+  }
+
+  var ffilePagesToTiff = function (e) {
+    const file_reader = new FileReader();
+    file_reader.onload = (event) => {
+      const json = AsposePdfPagesToTiff(event.target.result, e.target.files[0].name, "ResultPdfPagesToTiff{0:D2}.tiff", 150);
+      if (json.errorCode == 0) {
+        document.getElementById('output').textContent = "Files(pages) count: " + json.filesCount.toString();
+        for (let fileIndex = 0; fileIndex < json.filesCount; fileIndex++) DownloadFile(json.filesNameResult[fileIndex], "image/tiff");
+      }
+      else document.getElementById('output').textContent = json.errorText;
+    }
+    file_reader.readAsArrayBuffer(e.target.files[0]);
+  }
+
+  var ffileToBmp = function (e) {
+    const file_reader = new FileReader();
+    file_reader.onload = (event) => {
+      const json = AsposePdfPagesToBmp(event.target.result, e.target.files[0].name, "ResultPdfToBmp{0:D2}.bmp", 150);
+      if (json.errorCode == 0) {
+        document.getElementById('output').textContent = "Files(pages) count: " + json.filesCount.toString();
+        for (let fileIndex = 0; fileIndex < json.filesCount; fileIndex++) DownloadFile(json.filesNameResult[fileIndex], "image/bmp");
+      }
+      else document.getElementById('output').textContent = json.errorText;
+    }
+    file_reader.readAsArrayBuffer(e.target.files[0]);
+  }
+
+  var ffileToTeX = function (e) {
+    const file_reader = new FileReader();
+    file_reader.onload = (event) => {
+      const json = AsposePdfToTeX(event.target.result, e.target.files[0].name, "ResultPDFtoTeX.tex");
+      if (json.errorCode == 0) document.getElementById('output').textContent = json.fileNameResult;
+      else document.getElementById('output').textContent = json.errorText;
+      DownloadFile(json.fileNameResult, "application/x-tex");
+    }
+    file_reader.readAsArrayBuffer(e.target.files[0]);
+  }
+
+  var ffileToXps = function (e) {
+    const file_reader = new FileReader();
+    file_reader.onload = (event) => {
+      const json = AsposePdfToXps(event.target.result, e.target.files[0].name, "ResultPDFtoXps.xps");
+      if (json.errorCode == 0) document.getElementById('output').textContent = json.fileNameResult;
+      else document.getElementById('output').textContent = json.errorText;
+      DownloadFile(json.fileNameResult, "application/vnd.ms-xpsdocument");
+    }
+    file_reader.readAsArrayBuffer(e.target.files[0]);
+  }
+
+  var ffileToCSV = function (e) {
+    const file_reader = new FileReader();
+    file_reader.onload = (event) => {
+      const delimiter = "\t";
+      const json = AsposePdfTablesToCSV(event.target.result, e.target.files[0].name, "ResultPdfTablesToCSV{0:D2}.csv", delimiter);
+      if (json.errorCode == 0) {
+        document.getElementById('output').textContent = "Files(tables) count: " + json.filesCount.toString();
+        for (let fileIndex = 0; fileIndex < json.filesCount; fileIndex++) DownloadFile(json.filesNameResult[fileIndex], "text/csv");
+      }
+      else document.getElementById('output').textContent = json.errorText;
+    }
+    file_reader.readAsArrayBuffer(e.target.files[0]);
+  }
+
+  var ffileToTxt = function (e) {
+    const file_reader = new FileReader();
+    file_reader.onload = (event) => {
+      const json = AsposePdfToTxt(event.target.result, e.target.files[0].name, "ResultPDFtoTxt.txt");
+      if (json.errorCode == 0) document.getElementById('output').textContent = json.fileNameResult;
+      else document.getElementById('output').textContent = json.errorText;
+      DownloadFile(json.fileNameResult, "text/plain");
+    }
+    file_reader.readAsArrayBuffer(e.target.files[0]);
+  }
+
+  var ffileExtractImage = function (e) {
+    const file_reader = new FileReader();
+    file_reader.onload = (event) => {
+      const json = AsposePdfExtractImage(event.target.result, e.target.files[0].name, "ResultPdfExtractImage{0:D2}.jpg", 150);
+      if (json.errorCode == 0) {
+        document.getElementById('output').textContent = "Files(images) count: " + json.filesCount.toString();
+        for (let fileIndex = 0; fileIndex < json.filesCount; fileIndex++) DownloadFile(json.filesNameResult[fileIndex], "image/jpeg");
+      }
+      else document.getElementById('output').textContent = json.errorText;
+    }
+    file_reader.readAsArrayBuffer(e.target.files[0]);
+  }
+
+  var ffilePdfRemoveMetadata = function (e) {
+    const file_reader = new FileReader();
+    file_reader.onload = (event) => {
+      const json = AsposePdfRemoveMetadata(event.target.result, e.target.files[0].name, "ResultPdfRemoveMetadata.pdf");
+      if (json.errorCode == 0) document.getElementById('output').textContent = json.fileNameResult;
+      else document.getElementById('output').textContent = json.errorText;
+      DownloadFile(json.fileNameResult, "application/pdf");
+    }
+    file_reader.readAsArrayBuffer(e.target.files[0]);
+  }
+
+  var ffilePdfChangePassword = function (e) {
+    const file_reader = new FileReader();
+    file_reader.onload = (event) => {
+      const json = AsposePdfChangePassword(event.target.result, e.target.files[0].name, "owner", "newuser", "newowner", "ResultPdfChangePassword.pdf");
+      if (json.errorCode == 0) document.getElementById('output').textContent = json.fileNameResult;
+      else document.getElementById('output').textContent = json.errorText;
+      DownloadFile(json.fileNameResult, "application/pdf");
+    }
+    file_reader.readAsArrayBuffer(e.target.files[0]);
+  }
+
+  var ffilePdfRepair = function (e) {
+    const file_reader = new FileReader();
+    file_reader.onload = (event) => {
+      const json = AsposePdfRepair(event.target.result, e.target.files[0].name, "ResultPdfRepair.pdf");
+      if (json.errorCode == 0) document.getElementById('output').textContent = json.fileNameResult;
+      else document.getElementById('output').textContent = json.errorText;
+      DownloadFile(json.fileNameResult, "application/pdf");
+    }
+    file_reader.readAsArrayBuffer(e.target.files[0]);
+  }
+
+  var ffilePdfOptimizeResource = function (e) {
+    const file_reader = new FileReader();
+    file_reader.onload = (event) => {
+      const json = AsposePdfOptimizeResource(event.target.result, e.target.files[0].name, "ResultPdfOptimizeResource.pdf");
+      if (json.errorCode == 0) document.getElementById('output').textContent = json.fileNameResult;
+      else document.getElementById('output').textContent = json.errorText;
+      DownloadFile(json.fileNameResult, "application/pdf");
+    }
+    file_reader.readAsArrayBuffer(e.target.files[0]);
+  }
+
+  var ffilePdfSetBackgroundColor = function (e) {
+    const file_reader = new FileReader();
+    file_reader.onload = (event) => {
+      const json = AsposePdfSetBackgroundColor(event.target.result, e.target.files[0].name, "#426bf4", "ResultPdfSetBackgroundColor.pdf");
+      if (json.errorCode == 0) document.getElementById('output').textContent = json.fileNameResult;
+      else document.getElementById('output').textContent = json.errorText;
+      DownloadFile(json.fileNameResult, "application/pdf");
+    }
+    file_reader.readAsArrayBuffer(e.target.files[0]);
+  }
+
+  var ffilePdfDeleteAnnotations = function (e) {
+    const file_reader = new FileReader();
+    file_reader.onload = (event) => {
+      const json = AsposePdfDeleteAnnotations(event.target.result, e.target.files[0].name, "ResultPdfDeleteAnnotations.pdf");
+      if (json.errorCode == 0) document.getElementById('output').textContent = json.fileNameResult;
+      else document.getElementById('output').textContent = json.errorText;
+      DownloadFile(json.fileNameResult, "application/pdf");
+    }
+    file_reader.readAsArrayBuffer(e.target.files[0]);
+  }
+
+  var ffilePdfDeleteBookmarks = function (e) {
+    const file_reader = new FileReader();
+    file_reader.onload = (event) => {
+      const json = AsposePdfDeleteBookmarks(event.target.result, e.target.files[0].name, "ResultPdfDeleteBookmarks.pdf");
+      if (json.errorCode == 0) document.getElementById('output').textContent = json.fileNameResult;
+      else document.getElementById('output').textContent = json.errorText;
+      DownloadFile(json.fileNameResult, "application/pdf");
+    }
+    file_reader.readAsArrayBuffer(e.target.files[0]);
+  }
+
+  var ffilePdfDeleteAttachments = function (e) {
+    const file_reader = new FileReader();
+    file_reader.onload = (event) => {
+      const json = AsposePdfDeleteAttachments(event.target.result, e.target.files[0].name, "ResultPdfDeleteAttachments.pdf");
+      if (json.errorCode == 0) document.getElementById('output').textContent = json.fileNameResult;
+      else document.getElementById('output').textContent = json.errorText;
+      DownloadFile(json.fileNameResult, "application/pdf");
+    }
+    file_reader.readAsArrayBuffer(e.target.files[0]);
+  }
+
+  var ffilePdfDeleteImages = function (e) {
+    const file_reader = new FileReader();
+    file_reader.onload = (event) => {
+      const json = AsposePdfDeleteImages(event.target.result, e.target.files[0].name, "ResultPdfDeleteImages.pdf");
+      if (json.errorCode == 0) document.getElementById('output').textContent = json.fileNameResult;
+      else document.getElementById('output').textContent = json.errorText;
+      DownloadFile(json.fileNameResult, "application/pdf");
+    }
+    file_reader.readAsArrayBuffer(e.target.files[0]);
+  }
+
+  var ffilePdfDeleteJavaScripts = function (e) {
+    const file_reader = new FileReader();
+    file_reader.onload = (event) => {
+      const json = AsposePdfDeleteJavaScripts(event.target.result, e.target.files[0].name, "ResultPdfDeleteJavaScripts.pdf");
+      if (json.errorCode == 0) document.getElementById('output').textContent = json.fileNameResult;
+      else document.getElementById('output').textContent = json.errorText;
+      DownloadFile(json.fileNameResult, "application/pdf");
+    }
+    file_reader.readAsArrayBuffer(e.target.files[0]);
+  }
+
+  var ffileToDICOM = function (e) {
+    const file_reader = new FileReader();
+    file_reader.onload = (event) => {
+      const json = AsposePdfPagesToDICOM(event.target.result, e.target.files[0].name, "ResultPdfToDICOM{0:D2}.dcm");
+      if (json.errorCode == 0) {
+        document.getElementById('output').textContent = "Files(pages) count: " + json.filesCount.toString();
+        for (let fileIndex = 0; fileIndex < json.filesCount; fileIndex++) DownloadFile(json.filesNameResult[fileIndex], "application/dicom");
+      }
+      else document.getElementById('output').textContent = json.errorText;
+    }
+    file_reader.readAsArrayBuffer(e.target.files[0]);
+  }
+
+  var ffileToEPUB= function (e) {
+    const file_reader = new FileReader();
+    file_reader.onload = (event) => {
+      const json = AsposePdfToEPUB(event.target.result, e.target.files[0].name, "ResultPDFtoEPUB.epub");
+      if (json.errorCode == 0) document.getElementById('output').textContent = json.fileNameResult;
+      else document.getElementById('output').textContent = json.errorText;
+      DownloadFile(json.fileNameResult, "application/epub+zip");
+    }
+    file_reader.readAsArrayBuffer(e.target.files[0]);
+  }
+
+  var ffileToDOC= function (e) {
+    const file_reader = new FileReader();
+    file_reader.onload = (event) => {
+      const json = AsposePdfToDoc(event.target.result, e.target.files[0].name, "ResultPDFtoDoc.doc");
+      if (json.errorCode == 0) document.getElementById('output').textContent = json.fileNameResult;
+      else document.getElementById('output').textContent = json.errorText;
+      DownloadFile(json.fileNameResult, "application/msword");
+    }
+    file_reader.readAsArrayBuffer(e.target.files[0]);
+  }
+
+  var ffileToPPTX= function (e) {
+    const file_reader = new FileReader();
+    file_reader.onload = (event) => {
+      const json = AsposePdfToPptX(event.target.result, e.target.files[0].name, "ResultPDFtoPptX.pptx");
+      if (json.errorCode == 0) document.getElementById('output').textContent = json.fileNameResult;
+      else document.getElementById('output').textContent = json.errorText;
+      DownloadFile(json.fileNameResult, "application/vnd.openxmlformats-officedocument.presentationml.presentation");
+    }
+    file_reader.readAsArrayBuffer(e.target.files[0]);
+  }
+
+</script>
+
+<script>
+  const inputOnChange = function () {
+    Array.from(document.body.getElementsByTagName('a')).forEach(a => {a.remove();});
+    Array.from(document.body.getElementsByTagName('br')).forEach(br => {br.remove();});
+  }
+  Array.from(document.body.getElementsByTagName('input')).forEach(element => {element.addEventListener("input", inputOnChange);});
+</script>
+
+<script>
+  function openCategory(evt, categoryName) {
+    var i, tabcontent, tablinks;
+    tabcontent = document.getElementsByClassName("tabcontent");
+    for (i = 0; i < tabcontent.length; i++) {
+      tabcontent[i].style.display = "none";
+    }
+    tablinks = document.getElementsByClassName("tablinks");
+    for (i = 0; i < tablinks.length; i++) {
+      tablinks[i].className = tablinks[i].className.replace(" active", "");
+    }
+    document.getElementById(categoryName).style.display = "block";
+    evt.currentTarget.className += " active";
+  }
+  document.getElementById("defaultOpen").click();
+</script>
+
+</html>
