@@ -17,7 +17,7 @@ Add PDF processing, manipulation, and conversion features to your front-end appl
 - **Concatenate** or **split** PDF files.
 - **Linearization** of PDF documents for web optimization.
 - **Convert** PDF documents to Office, web, and image formats with the highest visual fidelity.
-- Manipulate PDF files to manage bookmarks, hyperlinks, watermarks, attachments & annotations.
+- **Manipulate** PDF files to manage bookmarks, hyperlinks, watermarks, attachments & annotations.
 - **Encrypt** or **decrypt** PDF documents and set document privileges or modify passwords.
 - **Digitally sign PDF** documents or remove signatures. Also, verify if the PDF is signed and the signature is valid.
 
@@ -27,9 +27,9 @@ Add PDF processing, manipulation, and conversion features to your front-end appl
 
 ## Save PDF Documents As
 
-**Microsoft Office:** DOC, DOCX, XLS, XLSX, PPTX
-**Images:** JPEG, PNG, BMP, TIFF, EMF
-**Others:** EPUB, DICOM, SVG, SVG(ZIP), GRAYSCALE PDF, PDF/A, TEX, TXT
+- **Microsoft Office:** DOC, DOCX, XLS, XLSX, PPTX
+- **Images:** JPEG, PNG, BMP, TIFF, EMF
+- **Others:** EPUB, DICOM, SVG, SVG(ZIP), GRAYSCALE PDF, PDF/A, TEX, TXT
 
 ## Platform Independence
 
