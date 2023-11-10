@@ -40,13 +40,13 @@ The library was written in C++ and does not require additional runtime environme
 
 Are you ready to give Aspose.PDF for JavaScript via C++ a try?
 
-- Execute `npm install git+https://github.com/asposepdf/aspose-pdf-js.git` in Terminal in Visual Studio Code or in another console.
+- Execute `npm install git+https://github.com/aspose-pdf/Aspose.PDF-for-JavaScript-via-CPP` in Terminal in Visual Studio Code or in another console.
 - You can also add one line in `dependency` section of `package.json` manually
 
 ```json
 "dependencies": {
     "some-package": "link",
-    "aspose-pdf-js": "github:asposepdf/aspose-pdf-js",
+    "aspose-pdf-js": "github:aspose-pdf/Aspose.PDF-for-JavaScript-via-CPP",
     "another-package": "link"
   }
 ```
