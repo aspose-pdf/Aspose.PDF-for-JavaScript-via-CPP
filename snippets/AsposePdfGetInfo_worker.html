@@ -21,7 +21,28 @@
   AsposePDFWebWorker.onerror = evt => console.log(`Error from Web Worker: ${evt.message}`);
   AsposePDFWebWorker.onmessage = evt => document.getElementById('output').textContent = 
     (evt.data == 'ready') ? 'loaded!' :
-      (evt.data.json.errorCode == 0) ? `info:\n${JSON.stringify(evt.data.json, null, 4)}` : `Error: ${evt.data.json.errorText}`; 
+      (evt.data.json.errorCode !== 0) ? `Error: ${evt.data.json.errorText}` : "Title             : " + evt.data.json.title
+                                                                          + "\nCreator           : " + evt.data.json.creator
+                                                                          + "\nAuthor            : " + evt.data.json.author
+                                                                          + "\nSubject           : " + evt.data.json.subject
+                                                                          + "\nKeywords          : " + evt.data.json.keywords
+                                                                          + "\nCreation Date     : " + evt.data.json.creation
+                                                                          + "\nModify Date       : " + evt.data.json.mod
+                                                                          + "\nPDF format        : " + evt.data.json.format
+                                                                          + "\nPDF version       : " + evt.data.json.version
+                                                                          + "\nPDF is PDF/A      : " + evt.data.json.ispdfa
+                                                                          + "\nPDF is PDF/UA     : " + evt.data.json.ispdfua
+                                                                          + "\nPDF is linearized : " + evt.data.json.islinearized
+                                                                          + "\nPDF is encrypted  : " + evt.data.json.isencrypted
+                                                                          + "\nPDF permission    : " + evt.data.json.permission
+                                                                          + "\nPDF page size     : " + evt.data.json.size
+                                                                          + "\nPage count        : " + evt.data.json.pagecount
+                                                                          + "\nAnnotation count  : " + evt.data.json.annotationcount
+                                                                          + "\nBookmark count    : " + evt.data.json.bookmarkcount
+                                                                          + "\nAttachment count  : " + evt.data.json.attachmentcount
+                                                                          + "\nMetadata count    : " + evt.data.json.metadatacount
+                                                                          + "\nJavaScript count  : " + evt.data.json.javascriptcount
+                                                                          + "\nImage count       : " + evt.data.json.imagecount;
 
   /*Event handler*/
   const ffilePdfGetInfo = e => {

@@ -114,12 +114,18 @@
       const operation = evt.data.operation;
       const params = evt.data.params;
       if (json.errorCode == 0) {
-        document.getElementById('output').textContent = "completed!";
+        if (operation !== 'AsposePdfPrepare') document.getElementById('output').textContent = "completed!";
         document.getElementById('fileDownload').innerHTML = "";
         // peculiar properties
         switch (operation) {
           case 'AsposePdfAbout':
             document.getElementById('AsposeTitle').innerHTML = json.producer;
+            document.getElementById('output').textContent = "Product      : " + json.product
+                                                                             + "\nFamily       : " + json.family
+                                                                             + "\nVersion      : " + json.version
+                                                                             + "\nRelease date : " + json.releasedate
+                                                                             + "\nProducer     : " + json.producer
+                                                                             + "\nIs licensed  : " + json.islicensed;
             break;
           case 'AsposePdfPrepare':
             // if 'optdata' is Array
@@ -145,13 +151,28 @@
             document.getElementById('output').textContent = listFonts;
             break;
           case 'AsposePdfGetInfo':
-            document.getElementById('output').textContent = "Title: " + json.title + "\nCreator: " + json.creator + "\nAuthor: " + json.author
-                                                          + "\nSubject: " + json.subject + "\nKeywords: " + json.keywords
-                                                          + "\nCreation Date: " + json.creation + "\nModify Date: " + json.mod
-                                                          + "\nPDF format: " + json.format + "\nPDF version: " + json.version
-                                                          + "\nPDF is PDF/A: " + json.ispdfa + "\nPDF is PDF/UA: " + json.ispdfua
-                                                          + "\nPDF permission: " + json.permission + "\nPDF page size: " + json.size
-                                                          + "\nPage count: " + json.pagecount;
+            document.getElementById('output').textContent = "Title             : " + json.title
+                                                        + "\nCreator           : " + json.creator
+                                                        + "\nAuthor            : " + json.author
+                                                        + "\nSubject           : " + json.subject
+                                                        + "\nKeywords          : " + json.keywords
+                                                        + "\nCreation Date     : " + json.creation
+                                                        + "\nModify Date       : " + json.mod
+                                                        + "\nPDF format        : " + json.format
+                                                        + "\nPDF version       : " + json.version
+                                                        + "\nPDF is PDF/A      : " + json.ispdfa
+                                                        + "\nPDF is PDF/UA     : " + json.ispdfua
+                                                        + "\nPDF is linearized : " + json.islinearized
+                                                        + "\nPDF is encrypted  : " + json.isencrypted
+                                                        + "\nPDF permission    : " + json.permission
+                                                        + "\nPDF page size     : " + json.size
+                                                        + "\nPage count        : " + json.pagecount
+                                                        + "\nAnnotation count  : " + json.annotationcount
+                                                        + "\nBookmark count    : " + json.bookmarkcount
+                                                        + "\nAttachment count  : " + json.attachmentcount
+                                                        + "\nMetadata count    : " + json.metadatacount
+                                                        + "\nJavaScript count  : " + json.javascriptcount
+                                                        + "\nImage count       : " + json.imagecount;
             break;
           case 'AsposePdfPagesToJpg':
             document.getElementById('output').textContent = "Files(pages) count: " + json.filesCount.toString();

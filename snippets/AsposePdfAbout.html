@@ -20,13 +20,19 @@
     /*Get info about Product*/
     const json = AsposePdfAbout();
     /* JSON
-    Product name:       json.product
-    Product family:     json.family
-    Product version:    json.version
-    Date release:       json.releasedate
-    Full name/producer: json.producer
+    Product name       : json.product
+    Product family     : json.family
+    Product version    : json.version
+    Date release       : json.releasedate
+    Full name/producer : json.producer
+    Product is licensed: json.islicensed
     */
-    if (json.errorCode == 0) document.getElementById('output').textContent = "JSON:\n" + JSON.stringify(json, null, 4);
+    if (json.errorCode == 0) document.getElementById('output').textContent = "Product      : " + json.product
+                                                                         + "\nFamily       : " + json.family
+                                                                         + "\nVersion      : " + json.version
+                                                                         + "\nRelease date : " + json.releasedate
+                                                                         + "\nProducer     : " + json.producer
+                                                                         + "\nIs licensed  : " + json.islicensed;
     else document.getElementById('output').textContent = json.errorText;
   }
 /// [Code snippet]

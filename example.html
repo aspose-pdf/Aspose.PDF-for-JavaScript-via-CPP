@@ -240,9 +240,9 @@
 
   var onloadAsposePDFforJS = function () {
     var Module_onRuntimeInitialized = Module['onRuntimeInitialized'];
-    Module['onRuntimeInitialized'] = function() {
+    Module['onRuntimeInitialized'] = async function() {
         console.log('AsposePDFforJS has loaded');
-        Module_onRuntimeInitialized();
+        await Module_onRuntimeInitialized();
         //Key PKCS7 for test, converted to Base64, with "Pa$$w0rd2023" password
         const test_pfx = "data:application/octet-stream;base64,MIIEcQIBAzCCBDcGCSqGSIb3DQEHAaCCBCgEggQkMIIEIDCCAj8GCSqGSIb3DQEHBqCCAjAwggIsAgEAMIICJQYJKoZIhvcNAQcBMBwGCiqGSIb3DQEMAQYwDgQI4tjRHb+OMLsCAggAgIIB+OAPdXDmh+6qTyjHkumo2euCw4EvRZ8qSha/AAWYespZs8mA9dInLWM33HeDqktHEcZoPf/CCWqQopRA6RPFAYIn9ioR8s3Phd3LmoMPb52SKJMvWjRGRppLyo4gCNZfv37duV8+mKTSyDW1wrtHsZnvLlUHmy8+OcG8zsAAX6YwHTMkafllpRKkB0kmO1boSvHEp5IPsU8u50VpF21OXYNV7D5c4W2O1GrV0a5HD6OyObHJjj+ufPF7nh+qEuPN/b8hm14y+sZPoVSRvwtH+O8VVDxnJWX+y+jGhChLxiYUYRnhBMW6X+cZW9bcpXZIkFdQdPWA1/opOdTguHlXQF1R+JNnUUOtopwX103undyPGl5JGXvLrr6iH2aO1GY1p2Asd1exaQdfwFQynCxlZrKaCc2JBs5Jem5/wWN6rfq+n15tsYvk2gTP+U/icla8wp1NsqqTGOe0dAJNH3kDOwxKVb5gU+fOYbFWI/6iZ3Tdl41W66rE4Gxj937oYJE1KUK3SlxJtL0uK5c3ZN9yMJYdpc9k2HQ1VOssuUKrmpuOcyJhpF4XosHxMyQxPFFVA/TNggb3Dv3cr2Qei+JqF4n4KAqYCY5u0O+y6+R9Ig0L5zCL/n9cWyPyYqqvEH4ICxqUoH05qCJIMdiNlc5w1PYUXKaSRSzK0TCCAdkGCSqGSIb3DQEHAaCCAcoEggHGMIIBwjCCAb4GCyqGSIb3DQEMCgECoIIBhjCCAYIwHAYKKoZIhvcNAQwBAzAOBAgWFTAixF9bPAICCAAEggFgwC4A+R9X2xdbdfz0IKw2f7pe3iJdgLKJPYiUDV2cGfQnM4UuQKu9qIZ3lAzBtQcF09Wy6pwwU63nVHiGZ6y9PunZZ3tIM24I0Ii1Q5PrphvT4z7yXPqI+sv53AhzwpTJ2XHJQRf53PX7V8ujv3k8lfBQ6gYxfFMkrTdZlfiWeoWZSlFMKUzmaRfBFVit5BRUNEgZrySfZxyxULpo+KzQ/b5K0Z69x6Gvj/j21gEkGTEDWhmjECjsPCP+sWDMyB1xOxHimJgmLtSHc7hpdE/xuRBVELxhlFI1lYj3fbWbnMNzeLG+OBaoktbpr9kbsWRM568vLxdV7XZYkaoGEd+SEUTR+Yxyak/DHspkO/o4apjOh24U6GCqfqPl4ucxTMvOiYpobrxPub/sqQPXB0NEsqNPjcYdsT1y1YkYMxO0b1heh8TWat6SYk1dLi1wdV0iGf8LTImqzzUobZNBfrybjzElMCMGCSqGSIb3DQEJFTEWBBRBGCVJ5N72ukaNrJUetg4Rp0/41DAxMCEwCQYFKw4DAhoFAAQU8VT/8VxDX7Sx3p05TO3BNne5YXYECJhmeDAQpwBNAgIIAA==";
         AsposePdfPrepareBase64(test_pfx,"test.pfx");
@@ -251,7 +251,12 @@
         AsposePdfPrepareBase64(sign_png,"sign.png");
         //Get info about Product
         const json = AsposePdfAbout();
-        if (json.errorCode == 0) document.getElementById('output').textContent = json.producer;
+        if (json.errorCode == 0) document.getElementById('output').textContent = "Product      : " + json.product
+                                                                             + "\nFamily       : " + json.family
+                                                                             + "\nVersion      : " + json.version
+                                                                             + "\nRelease date : " + json.releasedate
+                                                                             + "\nProducer     : " + json.producer
+                                                                             + "\nIs licensed  : " + json.islicensed;
         else document.getElementById('output').textContent = json.errorText;
     }
   }
@@ -424,13 +429,28 @@
     const file_reader = new FileReader();
     file_reader.onload = (event) => {
       const json = AsposePdfGetInfo(event.target.result, e.target.files[0].name);
-      if (json.errorCode == 0) document.getElementById('output').textContent = "Title: " + json.title + "\nCreator: " + json.creator + "\nAuthor: " + json.author
-                                                                             + "\nSubject: " + json.subject + "\nKeywords: " + json.keywords
-                                                                             + "\nCreation Date: " + json.creation + "\nModify Date: " + json.mod
-                                                                             + "\nPDF format: " + json.format + "\nPDF version: " + json.version
-                                                                             + "\nPDF is PDF/A: " + json.ispdfa + "\nPDF is PDF/UA: " + json.ispdfua
-                                                                             + "\nPDF permission: " + json.permission + "\nPDF page size: " + json.size 
-                                                                             + "\nPage count: " + json.pagecount;
+      if (json.errorCode == 0) document.getElementById('output').textContent = "Title             : " + json.title
+                                                                           + "\nCreator           : " + json.creator
+                                                                           + "\nAuthor            : " + json.author
+                                                                           + "\nSubject           : " + json.subject
+                                                                           + "\nKeywords          : " + json.keywords
+                                                                           + "\nCreation Date     : " + json.creation
+                                                                           + "\nModify Date       : " + json.mod
+                                                                           + "\nPDF format        : " + json.format
+                                                                           + "\nPDF version       : " + json.version
+                                                                           + "\nPDF is PDF/A      : " + json.ispdfa
+                                                                           + "\nPDF is PDF/UA     : " + json.ispdfua
+                                                                           + "\nPDF is linearized : " + json.islinearized
+                                                                           + "\nPDF is encrypted  : " + json.isencrypted
+                                                                           + "\nPDF permission    : " + json.permission
+                                                                           + "\nPDF page size     : " + json.size
+                                                                           + "\nPage count        : " + json.pagecount
+                                                                           + "\nAnnotation count  : " + json.annotationcount
+                                                                           + "\nBookmark count    : " + json.bookmarkcount
+                                                                           + "\nAttachment count  : " + json.attachmentcount
+                                                                           + "\nMetadata count    : " + json.metadatacount
+                                                                           + "\nJavaScript count  : " + json.javascriptcount
+                                                                           + "\nImage count       : " + json.imagecount;
       else document.getElementById('output').textContent = json.errorText;
     }
     file_reader.readAsArrayBuffer(e.target.files[0]);
