@@ -47,6 +47,9 @@
       <option value="AsposePdfExtractText" selected>Extract text from a PDF-file</option>
       <option value="AsposePdfExtractImage">Extract image from a PDF-file</option>
 
+    <optgroup label="Convert to PDF">
+      <option value="AsposePdfFromTxt">Convert a TXT-file to PDF</option>
+
     <optgroup label="Organize PDF">
       <option value="AsposePdfOptimize">Optimize a PDF-file</option>
       <option value="AsposePdfMerge2Files">Merge two PDF-files</option>
@@ -66,6 +69,8 @@
       <option value="AsposePdfDeleteAttachments">Delete attachments from a PDF-file</option>
       <option value="AsposePdfDeleteImages">Delete images from a PDF-file</option>
       <option value="AsposePdfDeleteJavaScripts">Delete JavaScripts from a PDF-file</option>
+      <option value="AsposePdfAddAttachment">Add attachment to a PDF-file</option>
+      <option value="AsposePdfGetAttachment">Get attachment from a PDF-file</option>
 
     <optgroup label="Metadata PDF">
       <option value="AsposePdfSetInfo">Set info (metadata) in a PDF-file</option>
@@ -106,6 +111,9 @@
       // sign picture, signatureAppearance, converted to Base64
       const sign_png ="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAAAyCAIAAAAlV+npAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAT6SURBVGhD7ZptTFtVGIBbyqUrbddALRA/gtuYEzs2J5sRBQPZcEUgAwvBDQxOUZP5ScwSl/jDfzPxx4wfi3M4rYNVAkwWZygy4w/RkoyxzVkZg4nMNBaQkVKgdP3At56TI8y2XPWe23MTnx/AfeHXk/c8vTcX+eLioux/+JGAv0uTQDDQ7xzAF/SRtqz9Pa8XWcp6x+z4mjISPoadg6crW2vhB02Suqu2Iz8zD83pIdXN+mV6bO+pfSpd6KFSbVDlKWkxi7BfkpQFqapuq/cpp4vrklO2ObfvSUa+bMM9+C/oIElZkCrH3Ln7diSFDBPh6/QJ5KvcWtPu6PzzT6ggPVmQqiOD76/dGkzJuY5HQPqEqUHJaf27O56i50tigYdUbTlSsNo4ual8AY+WwHn0tiaf38NZzceqjBV4KhxS2iySqnsfWI1Hy/Frpx597NZAKAj7NTJ1FU+FQ0qyXuzavyxVkXBNzMHXuk01Wfp1aCIgkpH12aV2y3DTzalajuJ62kCve2Na9rslb+GRoEhDFpypZ754yZAVWFPgxaNInP9uRuHVQrA0Sg0eCYoEZC34FyBVcGcQLVWIa3b15Egi7NTG9HvwSGgkIKux+8CQ92LsVM0M6of75DVr6p7cEn4AogTrsnim6qzNt05ppJQqAtOy/lGq2qo/pZQqAruyZn2zla21PFN1tPyduw134RE12JUFd1VXfQ4+qapf3/B4ThUe0YRRWZ+cb2kdbeaTqg2qzYd2HsQjyrAo68fxn2CteKfKsopbhUeUYU4WpAqe7PinisZjTTSoy4I1gbtKfMEDPqmavpQqZqoIdGW1Ozq3HS0sPr4L9gWPYsInVQmTaQNnboiZKgJFWWAKDtRCwNd7ra+kxbyiL56putAndqoItGQhU5zWb96bsbmQO+f+PrYvnndVo9+qxE8VgYosYsrUoPRlXrmjcMr4cEJsX3Cn7gyOrJiqn/sV4qeKILyspab82ik0zMidARHIl8szjoaED85+dOrXNmZTRRBYVkRTCBCx9ZGwryJL6VJfF377obH7AMupIggpq/liazRTCJ0x7GvMP0R8wamsbquXq718UnW88sO4pIogmCxYkCc+fzYQChYUGyKaQtzki3+qnst+viK7DI/ihJCvwt62H4YDpdKFdr6wGODCLw6i4Xak9n91Q+2/ZY77HVIV4wBCqnqa543qXPvTZxIViXgaJ4Q8hq/k7YP6et0J3e/JuQUdnkYC7ReY4pMqpS8FUhV3U4DwL1nJfkUrF8E7bNDo5cHUqAcQUgUH8ITJGvcDiKDyRjrGZyJ/IFVwrwCpOmR6E4/iDa3X9//RF1OpIgh/U4qoMlZYzcf8Hs7W5OM8ejzlDVOpItCSBfxrX+iu6uNdh+9MycQjNqAoC1jqC04WnsaEnbuqvyPGvxydHrJBv4Iqz/Y9ybL0qJ99AJupItDdLETZBlNXbQc82X19Yl42Hmu/2EwVQQxZQH5m3oq+yAMga6kiiCQLiO0LperlnFdhDfGIPcRo1lJ6x+wlLeZwv3YnyzJwv1CqcnUPflP/JZsHECHeZiH+2i/rvG/UgIaQKniohs9Nlk0BYm8W4vLklSJLqVvhur8wxemadl6WnSw7aVpfjH/NKvGRBSBfrtnwSXwtv/HgjjfQnGXiJgtAvrJS1zKeKkI8ZQHgS5Okvl13G75mmzjLkhIy2R/qB+VUhKQ5zAAAAABJRU5ErkJggg==";
       UploadFileToWebWorker(sign_png, 'sign.png');
+      // attachment: text, converted to Base64
+      const text_txt ="data:text/plain;base64,V2VsY29tZSB0byBBc3Bvc2UuUERGIGZvciBKYXZhU2NyaXB0IHZpYSBDKys=";
+      UploadFileToWebWorker(text_txt,'text.txt');
       //Get info about Product - Ask Web Worker
       AsposePDFWebWorker.postMessage({ "operation": "AsposePdfAbout", "params": [] }, []);
     }
@@ -240,6 +248,11 @@
             for (let fileIndex = 0; fileIndex < json.filesCount; fileIndex++)
               DownloadFile(json.filesNameResult[fileIndex], "image/jpeg", params[fileIndex]);
             break;
+          case 'AsposePdfGetAttachment':
+            document.getElementById('output').textContent = "Files(attachment) count: " + json.filesCount.toString();
+            for (let fileIndex = 0; fileIndex < json.filesCount; fileIndex++)
+              DownloadFile(json.filesNameResult[fileIndex], "", params[fileIndex]);
+            break;
           case 'AsposePdfToEPUB':
             DownloadFile(json.fileNameResult, "application/epub+zip", params[0]);
             break;
@@ -256,7 +269,8 @@
             // AsposePdfRotateAllPages, AsposePdfSetInfo, AsposePdfSignPKCS7,
             // AsposePdfRemoveMetadata, AsposePdfChangePassword, AsposePdfOptimizeResource,
             // AsposePdfSetBackgroundColor, AsposePdfDeleteAnnotations, AsposePdfDeleteBookmarks,
-            // AsposePdfDeleteAttachments, AsposePdfDeleteImages, AsposePdfDeleteJavaScripts
+            // AsposePdfDeleteAttachments, AsposePdfDeleteImages, AsposePdfDeleteJavaScripts,
+            // AsposePdfFromTxt, AsposePdfAddAttachment
             DownloadFile(json.fileNameResult, "application/pdf", params[0]);
         }
       }
@@ -472,10 +486,22 @@
           transfer = [event.target.result];
           params = [event.target.result, ffile.name, ownerPassword, newUserPassword, newOwnerPassword, `Result${operation}.pdf`];
           break;
+        case 'AsposePdfAddAttachment':
+          const fileAttachment = '/text.txt'; //see option #2 uploading additional files
+          const fileDescription = 'Attachment "text.txt"';
+          transfer = [event.target.result];
+          params = [event.target.result, ffile.name, fileAttachment, fileDescription, `Result${operation}.pdf`];
+          break;
+        case 'AsposePdfGetAttachment':
+          const template_attachment = `Result${operation}_{0}`; //result filename template
+          transfer = [event.target.result];
+          params = [event.target.result, ffile.name, template_attachment];
+          break;
         default:
           // AsposePdfOptimize, AsposePdfAddPageNum, AsposePdfConvertToGrayscale, AsposePdfAConvertToPDF,
           // AsposePdfRemoveMetadata, AsposePdfRepair, AsposePdfOptimizeResource, AsposePdfDeleteAnnotations,
-          // AsposePdfDeleteBookmarks, AsposePdfDeleteAttachments, AsposePdfDeleteImages, AsposePdfDeleteJavaScripts
+          // AsposePdfDeleteBookmarks, AsposePdfDeleteAttachments, AsposePdfDeleteImages, AsposePdfDeleteJavaScripts,
+          // AsposePdfFromTxt
           transfer = [event.target.result];
           params = [event.target.result, ffile.name, `Result${operation}.pdf`];
       }
@@ -498,7 +524,15 @@
     // for AsposePdfMerge2Files need 'multiple'
     if (document.getElementById('selectOperation').value == 'AsposePdfMerge2Files')
       document.getElementById('fileOperation').setAttribute("multiple", '')
-    else document.getElementById('fileOperation').removeAttribute("multiple")
+    else 
+      document.getElementById('fileOperation').removeAttribute("multiple");
+    switch (document.getElementById('selectOperation').value) {
+      case 'AsposePdfFromTxt':
+        document.getElementById('fileOperation').setAttribute("accept", 'text/plain')
+        break;
+      default:
+        document.getElementById('fileOperation').setAttribute("accept", 'application/pdf')
+    }
     document.getElementById('fileOperation').value = '';
   }
 
