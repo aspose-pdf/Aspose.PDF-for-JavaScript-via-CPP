@@ -46,6 +46,9 @@
       <option value="AsposePdfToPptX">Convert a PDF-file to PptX</option>
       <option value="AsposePdfExtractText" selected>Extract text from a PDF-file</option>
       <option value="AsposePdfExtractImage">Extract image from a PDF-file</option>
+      <option value="AsposePdfExportFdf">Export from a PDF-file with AcroForm to FDF</option>
+      <option value="AsposePdfExportXfdf">Export from a PDF-file with AcroForm to XFDF</option>
+      <option value="AsposePdfExportXml">Export from a PDF-file with AcroForm to XML</option>
 
     <optgroup label="Convert to PDF">
       <option value="AsposePdfFromTxt">Convert a TXT-file to PDF</option>
@@ -71,6 +74,8 @@
       <option value="AsposePdfDeleteJavaScripts">Delete JavaScripts from a PDF-file</option>
       <option value="AsposePdfAddAttachment">Add attachment to a PDF-file</option>
       <option value="AsposePdfGetAttachment">Get attachment from a PDF-file</option>
+      <option value="AsposePdfReplaceText">Replace text in a PDF-file</option>
+      <option value="AsposePdfFindText">Find text in a PDF-file</option>
 
     <optgroup label="Metadata PDF">
       <option value="AsposePdfSetInfo">Set info (metadata) in a PDF-file</option>
@@ -157,6 +162,11 @@
             let listFonts = 'Fonts:';
             json.fonts.forEach(({fontName}) => listFonts += `\n${fontName}`);
             document.getElementById('output').textContent = listFonts;
+            break;
+          case 'AsposePdfFindText':
+            let listFragments= 'textFragments:';
+            json.textFragments.forEach(({xIndent, yIndent, fontName, fontSize}) => listFragments+= `\nxIndent: ${xIndent}, yIndent: ${yIndent}, fontName: ${fontName}, fontSize: ${fontSize}`);
+            document.getElementById('output').textContent = listFragments;
             break;
           case 'AsposePdfGetInfo':
             document.getElementById('output').textContent = "Title             : " + json.title
@@ -262,6 +272,15 @@
           case 'AsposePdfToPptX':
             DownloadFile(json.fileNameResult, "application/vnd.openxmlformats-officedocument.presentationml.presentation", params[0]);
             break;
+          case 'AsposePdfExportFdf':
+            DownloadFile(json.fileNameResult, "application/vnd.fdf", params[0]);
+            break;
+          case 'AsposePdfExportXfdf':
+            DownloadFile(json.fileNameResult, "application/vnd.adobe.xfdf", params[0]);
+            break;
+          case 'AsposePdfExportXml':
+            DownloadFile(json.fileNameResult, "application/xml", params[0]);
+            break;
           default:
             // AsposePdfAConvertToPDF, AsposePdfAddBackgroundImage, AsposePdfAddImage, AsposePdfAddPageNum,
             // AsposePdfAddStamp, AsposePdfAddTextHeaderFooter, AsposePdfConvertToGrayscale, AsposePdfDecrypt,
@@ -270,7 +289,7 @@
             // AsposePdfRemoveMetadata, AsposePdfChangePassword, AsposePdfOptimizeResource,
             // AsposePdfSetBackgroundColor, AsposePdfDeleteAnnotations, AsposePdfDeleteBookmarks,
             // AsposePdfDeleteAttachments, AsposePdfDeleteImages, AsposePdfDeleteJavaScripts,
-            // AsposePdfFromTxt, AsposePdfAddAttachment
+            // AsposePdfFromTxt, AsposePdfAddAttachment, AsposePdfReplaceText
             DownloadFile(json.fileNameResult, "application/pdf", params[0]);
         }
       }
@@ -496,6 +515,29 @@
           const template_attachment = `Result${operation}_{0}`; //result filename template
           transfer = [event.target.result];
           params = [event.target.result, ffile.name, template_attachment];
+          break;
+        case 'AsposePdfExportFdf':
+          transfer = [event.target.result];
+          params = [event.target.result, ffile.name, `Result${operation}.fdf`];
+          break;
+        case 'AsposePdfExportXfdf':
+          transfer = [event.target.result];
+          params = [event.target.result, ffile.name, `Result${operation}.xfdf`];
+          break;
+        case 'AsposePdfExportXml':
+          transfer = [event.target.result];
+          params = [event.target.result, ffile.name, `Result${operation}.xml`];
+          break;
+        case 'AsposePdfReplaceText':
+          const findText = 'Aspose';
+          const replaceText = 'ASPOSE';
+          transfer = [event.target.result];
+          params = [event.target.result, ffile.name, findText, replaceText, `Result${operation}.pdf`];
+          break;
+        case 'AsposePdfFindText':
+          const searchText = 'Aspose';
+          transfer = [event.target.result];
+          params = [event.target.result, ffile.name, searchText];
           break;
         default:
           // AsposePdfOptimize, AsposePdfAddPageNum, AsposePdfConvertToGrayscale, AsposePdfAConvertToPDF,

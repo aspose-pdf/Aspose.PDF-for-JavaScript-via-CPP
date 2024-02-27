@@ -110,6 +110,18 @@
         <label for="fileExtractImage">EXTRACT IMAGE<span class="tooltip">Extract image from a PDF-file</span></label>
         <input type="file" id="fileExtractImage" accept="application/pdf" onchange="ffileExtractImage(event)">
       </div>
+      <div class="column">
+        <label for="fileExportFdf">EXPORT FDF<span class="tooltip">Export from a PDF-file with AcroForm to FDF</span></label>
+        <input type="file" id="fileExportFdf" accept="application/pdf" onchange="ffileExportFdf(event)">
+      </div>
+      <div class="column">
+        <label for="fileExportXfdf">EXPORT XFDF<span class="tooltip">Export from a PDF-file with AcroForm to XFDF</span></label>
+        <input type="file" id="fileExportXfdf" accept="application/pdf" onchange="ffileExportXfdf(event)">
+      </div>
+      <div class="column">
+        <label for="fileExportXml">EXPORT XML<span class="tooltip">Export from a PDF-file with AcroForm to XML</span></label>
+        <input type="file" id="fileExportXml" accept="application/pdf" onchange="ffileExportXml(event)">
+      </div>
     </div>
   </div>
 
@@ -203,6 +215,14 @@
       <div class="column">
         <label for="filePdfGetAttachment">GET ATTACHMENT<span class="tooltip">Get attachment from a PDF-file</span></label>
         <input type="file" id="filePdfGetAttachment" accept="application/pdf" onchange="ffilePdfGetAttachment(event)">
+      </div>
+      <div class="column">
+        <label for="filePdfReplaceText">REPLACE TEXT<span class="tooltip">Choose a PDF-file to replace text</span></label>
+        <input type="file" id="filePdfReplaceText" accept="application/pdf" onchange="ffilePdfReplaceText(event)">
+      </div>
+      <div class="column">
+        <label for="filePdfFindText">FIND TEXT<span class="tooltip">Choose a PDF-file to find text</span></label>
+        <input type="file" id="filePdfFindText" accept="application/pdf" onchange="ffilePdfFindText(event)">
       </div>
     </div>
   </div>
@@ -895,6 +915,61 @@
     }
     file_reader.readAsArrayBuffer(e.target.files[0]);
   }
+
+  var ffileExportFdf = function (e) {
+    const file_reader = new FileReader();
+    file_reader.onload = (event) => {
+      const json = AsposePdfExportFdf(event.target.result, e.target.files[0].name, "ResultPDFExportFdf.fdf");
+      if (json.errorCode == 0) document.getElementById('output').textContent = json.fileNameResult;
+      else document.getElementById('output').textContent = json.errorText;
+      DownloadFile(json.fileNameResult, "application/vnd.fdf");
+    }
+    file_reader.readAsArrayBuffer(e.target.files[0]);
+  }
+
+  var ffileExportXfdf = function (e) {
+    const file_reader = new FileReader();
+    file_reader.onload = (event) => {
+      const json = AsposePdfExportXfdf(event.target.result, e.target.files[0].name, "ResultPDFExportXfdf.xfdf");
+      if (json.errorCode == 0) document.getElementById('output').textContent = json.fileNameResult;
+      else document.getElementById('output').textContent = json.errorText;
+      DownloadFile(json.fileNameResult, "application/vnd.adobe.xfdf");
+    }
+    file_reader.readAsArrayBuffer(e.target.files[0]);
+  }
+
+  var ffileExportXml = function (e) {
+    const file_reader = new FileReader();
+    file_reader.onload = (event) => {
+      const json = AsposePdfExportXml(event.target.result, e.target.files[0].name, "ResultPDFExportXml.xml");
+      if (json.errorCode == 0) document.getElementById('output').textContent = json.fileNameResult;
+      else document.getElementById('output').textContent = json.errorText;
+      DownloadFile(json.fileNameResult, "application/xml");
+    }
+    file_reader.readAsArrayBuffer(e.target.files[0]);
+  }
+
+  var ffilePdfReplaceText = function (e) {
+    const file_reader = new FileReader();
+    file_reader.onload = (event) => {
+      const json = AsposePdfReplaceText(event.target.result, e.target.files[0].name, "PDF", "pdf", "ResultPdfReplaceText.pdf");
+      if (json.errorCode == 0) document.getElementById('output').textContent = json.fileNameResult;
+      else document.getElementById('output').textContent = json.errorText;
+      DownloadFile(json.fileNameResult, "application/pdf");
+    }
+    file_reader.readAsArrayBuffer(e.target.files[0]);
+  }
+
+  var ffilePdfFindText = function (e) {
+    const file_reader = new FileReader();
+    file_reader.onload = (event) => {
+      const json = AsposePdfFindText(event.target.result, e.target.files[0].name, "Aspose");
+      if (json.errorCode == 0) document.getElementById('output').textContent = "JSON:\n" + JSON.stringify(json, null, 4);
+      else document.getElementById('output').textContent = json.errorText;
+    }
+    file_reader.readAsArrayBuffer(e.target.files[0]);
+  }
+
 
 </script>
 
