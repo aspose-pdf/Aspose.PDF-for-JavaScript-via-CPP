@@ -131,6 +131,10 @@
         <label for="fileFromTxt">TXT<span class="tooltip">Convert a TXT-file to PDF</span></label>
         <input type="file" id="fileFromTxt" accept="text/plain" onchange="ffileFromTxt(event)">
       </div>
+      <div class="column">
+        <label for="fileFromImage">IMG<span class="tooltip">Convert a Image-file to PDF</span></label>
+        <input type="file" id="fileFromImage" accept="image/*" onchange="ffileFromImage(event)">
+      </div>
     </div>
   </div>
 
@@ -885,6 +889,17 @@
     const file_reader = new FileReader();
     file_reader.onload = (event) => {
       const json = AsposePdfFromTxt(event.target.result, e.target.files[0].name, "ResultPDFFromTxt.pdf");
+      if (json.errorCode == 0) document.getElementById('output').textContent = json.fileNameResult;
+      else document.getElementById('output').textContent = json.errorText;
+      DownloadFile(json.fileNameResult, "application/pdf");
+    }
+    file_reader.readAsArrayBuffer(e.target.files[0]);
+  }
+
+  var ffileFromImage = function (e) {
+    const file_reader = new FileReader();
+    file_reader.onload = (event) => {
+      const json = AsposePdfFromImage(event.target.result, e.target.files[0].name, Module.PdfPageSize.A4, 10, false, "ResultPDFFromImage.pdf");
       if (json.errorCode == 0) document.getElementById('output').textContent = json.fileNameResult;
       else document.getElementById('output').textContent = json.errorText;
       DownloadFile(json.fileNameResult, "application/pdf");

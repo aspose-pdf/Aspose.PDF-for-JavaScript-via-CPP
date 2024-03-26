@@ -52,6 +52,7 @@
 
     <optgroup label="Convert to PDF">
       <option value="AsposePdfFromTxt">Convert a TXT-file to PDF</option>
+      <option value="AsposePdfFromImage">Convert a Image-file to PDF</option>
 
     <optgroup label="Organize PDF">
       <option value="AsposePdfOptimize">Optimize a PDF-file</option>
@@ -289,7 +290,7 @@
             // AsposePdfRemoveMetadata, AsposePdfChangePassword, AsposePdfOptimizeResource,
             // AsposePdfSetBackgroundColor, AsposePdfDeleteAnnotations, AsposePdfDeleteBookmarks,
             // AsposePdfDeleteAttachments, AsposePdfDeleteImages, AsposePdfDeleteJavaScripts,
-            // AsposePdfFromTxt, AsposePdfAddAttachment, AsposePdfReplaceText
+            // AsposePdfFromTxt, AsposePdfAddAttachment, AsposePdfReplaceText, AsposePdfFromImage
             DownloadFile(json.fileNameResult, "application/pdf", params[0]);
         }
       }
@@ -539,6 +540,13 @@
           transfer = [event.target.result];
           params = [event.target.result, ffile.name, searchText];
           break;
+        case 'AsposePdfFromImage':
+          const pageSize = 'Module.PdfPageSize.A3';
+          const margin = 40;
+          const isLandscape = true;
+          transfer = [event.target.result];
+          params = [event.target.result, ffile.name, pageSize, margin, isLandscape, `Result${operation}.pdf`];
+          break;
         default:
           // AsposePdfOptimize, AsposePdfAddPageNum, AsposePdfConvertToGrayscale, AsposePdfAConvertToPDF,
           // AsposePdfRemoveMetadata, AsposePdfRepair, AsposePdfOptimizeResource, AsposePdfDeleteAnnotations,
@@ -571,6 +579,9 @@
     switch (document.getElementById('selectOperation').value) {
       case 'AsposePdfFromTxt':
         document.getElementById('fileOperation').setAttribute("accept", 'text/plain')
+        break;
+      case 'AsposePdfFromImage':
+        document.getElementById('fileOperation').setAttribute("accept", 'image/*')
         break;
       default:
         document.getElementById('fileOperation').setAttribute("accept", 'application/pdf')
