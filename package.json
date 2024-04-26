@@ -1,7 +1,7 @@
 {
   "name": "aspose-pdf-js",
   "description": "Aspose.PDF for Javascript via C++",
-  "version": "24.3.0",
+  "version": "24.4.0",
   "main": "AsposePDFforJS.js",
   "files": [
     "settings.json.default",
