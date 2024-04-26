@@ -228,6 +228,10 @@
         <label for="filePdfFindText">FIND TEXT<span class="tooltip">Choose a PDF-file to find text</span></label>
         <input type="file" id="filePdfFindText" accept="application/pdf" onchange="ffilePdfFindText(event)">
       </div>
+      <div class="column">
+        <label for="filePdfReplaceFont">REPLACE FONT<span class="tooltip">Choose a PDF-file to replace font</span></label>
+        <input type="file" id="filePdfReplaceFont" accept="application/pdf" onchange="ffilePdfReplaceFont(event)">
+      </div>
     </div>
   </div>
 
@@ -981,6 +985,17 @@
       const json = AsposePdfFindText(event.target.result, e.target.files[0].name, "Aspose");
       if (json.errorCode == 0) document.getElementById('output').textContent = "JSON:\n" + JSON.stringify(json, null, 4);
       else document.getElementById('output').textContent = json.errorText;
+    }
+    file_reader.readAsArrayBuffer(e.target.files[0]);
+  }
+
+  var ffilePdfReplaceFont = function (e) {
+    const file_reader = new FileReader();
+    file_reader.onload = (event) => {
+      const json = AsposePdfReplaceFont(event.target.result, e.target.files[0].name, "Helvetica", "Times", "ResultPdfReplaceFont.pdf");
+      if (json.errorCode == 0) document.getElementById('output').textContent = json.fileNameResult;
+      else document.getElementById('output').textContent = json.errorText;
+      DownloadFile(json.fileNameResult, "application/pdf");
     }
     file_reader.readAsArrayBuffer(e.target.files[0]);
   }

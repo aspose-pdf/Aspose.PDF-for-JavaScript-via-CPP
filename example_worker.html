@@ -77,6 +77,7 @@
       <option value="AsposePdfGetAttachment">Get attachment from a PDF-file</option>
       <option value="AsposePdfReplaceText">Replace text in a PDF-file</option>
       <option value="AsposePdfFindText">Find text in a PDF-file</option>
+      <option value="AsposePdfReplaceFont">Replace font in a PDF-file</option>
 
     <optgroup label="Metadata PDF">
       <option value="AsposePdfSetInfo">Set info (metadata) in a PDF-file</option>
@@ -290,7 +291,8 @@
             // AsposePdfRemoveMetadata, AsposePdfChangePassword, AsposePdfOptimizeResource,
             // AsposePdfSetBackgroundColor, AsposePdfDeleteAnnotations, AsposePdfDeleteBookmarks,
             // AsposePdfDeleteAttachments, AsposePdfDeleteImages, AsposePdfDeleteJavaScripts,
-            // AsposePdfFromTxt, AsposePdfAddAttachment, AsposePdfReplaceText, AsposePdfFromImage
+            // AsposePdfFromTxt, AsposePdfAddAttachment, AsposePdfReplaceText, AsposePdfFromImage,
+            // AsposePdfReplaceFont
             DownloadFile(json.fileNameResult, "application/pdf", params[0]);
         }
       }
@@ -546,6 +548,12 @@
           const isLandscape = true;
           transfer = [event.target.result];
           params = [event.target.result, ffile.name, pageSize, margin, isLandscape, `Result${operation}.pdf`];
+          break;
+        case 'AsposePdfReplaceFont':
+          const findFont = 'Helvetica';
+          const replaceFont = 'Times';
+          transfer = [event.target.result];
+          params = [event.target.result, ffile.name, findFont, replaceFont, `Result${operation}.pdf`];
           break;
         default:
           // AsposePdfOptimize, AsposePdfAddPageNum, AsposePdfConvertToGrayscale, AsposePdfAConvertToPDF,
