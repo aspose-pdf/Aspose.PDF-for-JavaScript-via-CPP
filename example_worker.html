@@ -32,6 +32,7 @@
       <option value="AsposePdfPagesToDICOM">Convert a PDF-file to DICOM</option>
       <option value="AsposePdfPagesToSvg">Convert a PDF-file to SVG</option>
       <option value="AsposePdfPagesToSvgZip">Convert a PDF-file to SVG(zip)</option>
+      <option value="AsposePdfPagesToPDF">Convert a PDF-file to PDF (separate pages)</option>
       <option value="AsposePdfToTeX">Convert a PDF-file to TeX</option>
       <option value="AsposePdfToXps">Convert a PDF-file to Xps</option>
       <option value="AsposePdfTablesToCSV">Convert a PDF-file to CSV (extract tables)</option>
@@ -282,6 +283,11 @@
             break;
           case 'AsposePdfExportXml':
             DownloadFile(json.fileNameResult, "application/xml", params[0]);
+            break;
+          case 'AsposePdfPagesToPDF':
+            document.getElementById('output').textContent = "Files(pages) count: " + json.filesCount.toString();
+            for (let fileIndex = 0; fileIndex < json.filesCount; fileIndex++)
+              DownloadFile(json.filesNameResult[fileIndex], "application/pdf", params[fileIndex]);
             break;
           default:
             // AsposePdfAConvertToPDF, AsposePdfAddBackgroundImage, AsposePdfAddImage, AsposePdfAddPageNum,
@@ -554,6 +560,11 @@
           const replaceFont = 'Times';
           transfer = [event.target.result];
           params = [event.target.result, ffile.name, findFont, replaceFont, `Result${operation}.pdf`];
+          break;
+        case 'AsposePdfPagesToPDF':
+          const template_pdf = `Result${operation}{0:D2}.pdf`; //result filename template
+          transfer = [event.target.result];
+          params = [event.target.result, ffile.name, template_pdf];
           break;
         default:
           // AsposePdfOptimize, AsposePdfAddPageNum, AsposePdfConvertToGrayscale, AsposePdfAConvertToPDF,

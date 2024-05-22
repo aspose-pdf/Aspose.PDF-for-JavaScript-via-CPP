@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8">
+  <title>Aspose.PDF for JavaScript via C++</title>
+</head>
+
+<body>
+  <label for="fileToPDF">Choose a PDF-file to convert to PDF (separate pages)</label>
+  <input type="file" id="fileToPDF" accept="application/pdf" onchange="ffileToPDF(event)">
+  <br>
+  <pre id="output"></pre>
+</body>
+<!-- Load and initiate Aspose.PDF for JavaScript via C++ -->
+<script type="text/javascript" async src="AsposePDFforJS.js"></script>
+<script type="text/javascript">
+/// [Code snippet]
+  var ffileToPDF = function (e) {
+    const file_reader = new FileReader();
+    file_reader.onload = (event) => {
+      /*Convert a PDF-file to separate PDF pages with template "ResultPdfToPDF{0:D2}.pdf" ({0}, {0:D2}, {0:D3}, ... format page number) and save*/
+      const json = AsposePdfPagesToPDF(event.target.result, e.target.files[0].name, "ResultPdfToPDF{0:D2}.pdf");
+      if (json.errorCode == 0) {
+        document.getElementById('output').textContent = "Files(pages) count: " + json.filesCount.toString();
+        /*Make links to result files*/
+        for (let fileIndex = 0; fileIndex < json.filesCount; fileIndex++) DownloadFile(json.filesNameResult[fileIndex], "application/pdf");
+      }
+      else document.getElementById('output').textContent = json.errorText;
+    };
+    file_reader.readAsArrayBuffer(e.target.files[0]);
+  };
+/// [Code snippet]
+</script>
+
+</html>
