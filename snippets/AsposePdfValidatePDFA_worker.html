@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8">
+  <title>Aspose.PDF for JavaScript via C++</title>
+</head>
+
+<body>
+  <label for="filePdfValidatePDFA">Choose a PDF-file to validate PDF/A compatibility</label>
+  <input type="file" id="filePdfValidatePDFA" accept="application/pdf" onchange="ffilePdfValidatePDFA(event)">
+  <br>
+  <pre id="output">please wait for loading...</pre>
+</body>
+
+<script type="text/javascript">
+/// [Code snippet]
+  /*Create Web Worker*/
+  const AsposePDFWebWorker = new Worker("AsposePDFforJS.js");
+  AsposePDFWebWorker.onerror = evt => console.log(`Error from Web Worker: ${evt.message}`);
+  AsposePDFWebWorker.onmessage = evt => document.getElementById('output').textContent = 
+    (evt.data == 'ready') ? 'loaded!' :
+      (evt.data.json.errorCode == 0) ? `Result:\n${DownloadFile(evt.data.json.fileNameResult, "application/xml", evt.data.params[0])}` : `Error: ${evt.data.json.errorText}`;
+
+  /*Event handler*/
+  const ffilePdfValidatePDFA = e => {
+    const file_reader = new FileReader();
+    file_reader.onload = event => {
+      const pdfFormat = 'Module.PdfFormat.PDF_A_1A';
+      /*Validate PDF/A compatibility a PDF-file and save result in the "ResultPdfValidatePDFA.xml" - Ask Web Worker*/
+      AsposePDFWebWorker.postMessage({ "operation": 'AsposePdfValidatePDFA', "params": [event.target.result, e.target.files[0].name, pdfFormat, "ResultPdfValidatePDFA.xml"] }, [event.target.result]);
+    };
+    file_reader.readAsArrayBuffer(e.target.files[0]);
+  };
+/// [Code snippet]
+
+  /*Make a link to download the result file*/
+  const DownloadFile = (filename, mime, content) => {
+      mime = mime || "application/octet-stream";
+      var link = document.createElement("a"); 
+      link.href = URL.createObjectURL(new Blob([content], {type: mime}));
+      link.download = filename;
+      link.innerHTML = "Click here to download the file " + filename;
+      document.body.appendChild(link); 
+      document.body.appendChild(document.createElement("br"));
+      return filename;
+    }
+</script>
+
+</html>

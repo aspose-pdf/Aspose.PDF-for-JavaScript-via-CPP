@@ -79,6 +79,7 @@
       <option value="AsposePdfReplaceText">Replace text in a PDF-file</option>
       <option value="AsposePdfFindText">Find text in a PDF-file</option>
       <option value="AsposePdfReplaceFont">Replace font in a PDF-file</option>
+      <option value="AsposePdfValidatePDFA">Validate PDF/A compatibility a PDF-file</option>
 
     <optgroup label="Metadata PDF">
       <option value="AsposePdfSetInfo">Set info (metadata) in a PDF-file</option>
@@ -282,6 +283,7 @@
             DownloadFile(json.fileNameResult, "application/vnd.adobe.xfdf", params[0]);
             break;
           case 'AsposePdfExportXml':
+          case 'AsposePdfValidatePDFA':
             DownloadFile(json.fileNameResult, "application/xml", params[0]);
             break;
           case 'AsposePdfPagesToPDF':
@@ -565,6 +567,11 @@
           const template_pdf = `Result${operation}{0:D2}.pdf`; //result filename template
           transfer = [event.target.result];
           params = [event.target.result, ffile.name, template_pdf];
+          break;
+        case 'AsposePdfValidatePDFA':
+          const pdfFormatValidate = 'Module.PdfFormat.PDF_A_1A';
+          transfer = [event.target.result];
+          params = [event.target.result, ffile.name, pdfFormatValidate, `Result${operation}.xml`];
           break;
         default:
           // AsposePdfOptimize, AsposePdfAddPageNum, AsposePdfConvertToGrayscale, AsposePdfAConvertToPDF,
