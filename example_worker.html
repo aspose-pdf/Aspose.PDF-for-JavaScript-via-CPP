@@ -80,6 +80,8 @@
       <option value="AsposePdfFindText">Find text in a PDF-file</option>
       <option value="AsposePdfReplaceFont">Replace font in a PDF-file</option>
       <option value="AsposePdfValidatePDFA">Validate PDF/A compatibility a PDF-file</option>
+      <option value="AsposePdfFindHiddenText">Find hidden text in a PDF-file</option>
+      <option value="AsposePdfDeleteHiddenText">Delete hidden text from a PDF-file</option>
 
     <optgroup label="Metadata PDF">
       <option value="AsposePdfSetInfo">Set info (metadata) in a PDF-file</option>
@@ -168,8 +170,9 @@
             document.getElementById('output').textContent = listFonts;
             break;
           case 'AsposePdfFindText':
+          case 'AsposePdfFindHiddenText':
             let listFragments= 'textFragments:';
-            json.textFragments.forEach(({xIndent, yIndent, fontName, fontSize}) => listFragments+= `\nxIndent: ${xIndent}, yIndent: ${yIndent}, fontName: ${fontName}, fontSize: ${fontSize}`);
+            json.textFragments.forEach(({text, xIndent, yIndent, fontName, fontSize}) => listFragments+= `\ntext: ${text}, xIndent: ${xIndent}, yIndent: ${yIndent}, fontName: ${fontName}, fontSize: ${fontSize}`);
             document.getElementById('output').textContent = listFragments;
             break;
           case 'AsposePdfGetInfo':
@@ -300,7 +303,7 @@
             // AsposePdfSetBackgroundColor, AsposePdfDeleteAnnotations, AsposePdfDeleteBookmarks,
             // AsposePdfDeleteAttachments, AsposePdfDeleteImages, AsposePdfDeleteJavaScripts,
             // AsposePdfFromTxt, AsposePdfAddAttachment, AsposePdfReplaceText, AsposePdfFromImage,
-            // AsposePdfReplaceFont
+            // AsposePdfReplaceFont, AsposePdfDeleteHiddenText
             DownloadFile(json.fileNameResult, "application/pdf", params[0]);
         }
       }
@@ -577,7 +580,7 @@
           // AsposePdfOptimize, AsposePdfAddPageNum, AsposePdfConvertToGrayscale, AsposePdfAConvertToPDF,
           // AsposePdfRemoveMetadata, AsposePdfRepair, AsposePdfOptimizeResource, AsposePdfDeleteAnnotations,
           // AsposePdfDeleteBookmarks, AsposePdfDeleteAttachments, AsposePdfDeleteImages, AsposePdfDeleteJavaScripts,
-          // AsposePdfFromTxt
+          // AsposePdfFromTxt, AsposePdfFindHiddenText, AsposePdfDeleteHiddenText
           transfer = [event.target.result];
           params = [event.target.result, ffile.name, `Result${operation}.pdf`];
       }
