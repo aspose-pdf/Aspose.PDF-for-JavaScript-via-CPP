@@ -88,6 +88,7 @@
       <option value="AsposePdfGetInfo">Get info (metadata) from a PDF-file</option>
       <option value="AsposePdfGetAllFonts">Get list fonts from a PDF-file</option>
       <option value="AsposePdfRemoveMetadata">Remove metadata from a PDF-file</option>
+      <option value="AsposePdfGetWordsCharactersCount">Get words and characters count in a PDF-file</option>
 
     <optgroup label="Security PDF">
       <option value="AsposePdfEncrypt">Encrypt a PDF-file</option>
@@ -163,6 +164,9 @@
             break;
           case 'AsposePdfExtractText':
             document.getElementById('output').textContent = json.extractText;
+            break;
+          case 'AsposePdfGetWordsCharactersCount':
+            document.getElementById('output').textContent = "Words count      : " + json.words + "\nCharacters count : " + json.characters;
             break;
           case 'AsposePdfGetAllFonts':
             let listFonts = 'Fonts:';
@@ -330,6 +334,7 @@
         case 'AsposePdfExtractText':
         case 'AsposePdfGetInfo':
         case 'AsposePdfGetAllFonts':
+        case 'AsposePdfGetWordsCharactersCount':
           transfer = [event.target.result];
           params = [event.target.result, ffile.name];
           break;
