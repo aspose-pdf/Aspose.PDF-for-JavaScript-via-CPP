@@ -1,7 +1,7 @@
 {
   "name": "aspose-pdf-js",
   "description": "Aspose.PDF for JavaScript via C++",
-  "version": "24.9.1",
+  "version": "24.9.2",
   "homepage": "https://products.aspose.com/pdf/javascript-cpp/",
   "readmeFilename": "README.md",
   "main": "index.js",
