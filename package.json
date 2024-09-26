@@ -1,12 +1,18 @@
 {
   "name": "aspose-pdf-js",
-  "description": "Aspose.PDF for Javascript via C++",
+  "description": "Aspose.PDF for JavaScript via C++",
   "version": "24.9.0",
-  "main": "AsposePDFforJS.js",
+  "homepage": "https://products.aspose.com/pdf/javascript-cpp/",
+  "readmeFilename": "README.md",
+  "main": "index.js",
+  "browser": "AsposePDFforJS.js",
   "files": [
     "settings.json.default",
+    "index.js",
     "AsposePDFforJS.js",
     "AsposePDFforJS.wasm.zip",
+    "LICENSE.md",
+    "README.md",
     "license/*",
     "fonts/*",
     "tools/*"
@@ -14,11 +20,67 @@
   "scripts": {
     "postinstall": "node ./tools/postinstall.js"
   },
-  "keywords": [
-    "pdf"
-  ],
-  "author": "Aspose.PDF for C++ Team",
+  "engines": {
+    "node": ">=10.0.0"
+  },
+  "author": {
+     "name": "Aspose.PDF for C++ Team",
+     "url": "https://products.aspose.com/pdf/"
+  },
   "license": "See Licence in LICENCE.md",
+  "keywords": [
+    "Aspose",
+    "Aspose.PDF",
+    "PDF",
+    "pdf",
+    "EPUB",
+    "TEX",
+    "SVG",
+    "XML",
+    "XPS",
+    "XLS",
+    "XLSX",
+    "PPTX",
+    "DOC",
+    "DOCX",
+    "EPUB",
+    "SVG",
+    "JPEG",
+    "PNG",
+    "BMP",
+    "GIF",
+    "TIFF",
+    "XML",
+    "XPS",
+    "Text",
+    "FDF",
+    "XFDF",
+    "PDF-to-DOC",
+    "PDF-to-DOCX",
+    "PDF-to-PDFA",
+    "PDF-to-TIFF",
+    "PDF-to-SVG",
+    "PDF-to-EPUB",
+    "PDF-to-PPTX",
+    "PDF-to-TEX",
+    "PDF-to-XML",
+    "PDF-to-XPS",
+    "PDF-to-XLS",
+    "PDF-to-XLSX",
+    "TXT-to-PDF",
+    "PDF-Bookmark",
+    "PDF-Attachment",
+    "Replace-Text",
+    "Extract-Image",
+    "Convert-PDF",
+    "Convert",
+    "Converter",
+    "PDF-to-Image",
+    "Stamp",
+    "Sign",
+    "C++",
+    "WebAssembly"
+  ],
   "dependencies": {
     "adm-zip": "^0.5.10"
   }

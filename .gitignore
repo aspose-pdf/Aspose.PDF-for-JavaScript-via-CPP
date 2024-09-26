@@ -1,3 +1,6 @@
+# wasm
+*.wasm
+
 # Logs
 logs
 *.log
