@@ -225,28 +225,36 @@
         <input type="file" id="filePdfGetAttachment" accept="application/pdf" onchange="ffilePdfGetAttachment(event)">
       </div>
       <div class="column">
-        <label for="filePdfReplaceText">REPLACE TEXT<span class="tooltip">Choose a PDF-file to replace text</span></label>
+        <label for="filePdfReplaceText">REPLACE TEXT<span class="tooltip">Replace text in a PDF-file</span></label>
         <input type="file" id="filePdfReplaceText" accept="application/pdf" onchange="ffilePdfReplaceText(event)">
       </div>
       <div class="column">
-        <label for="filePdfFindText">FIND TEXT<span class="tooltip">Choose a PDF-file to find text</span></label>
+        <label for="filePdfFindText">FIND TEXT<span class="tooltip">Find text in a PDF-file</span></label>
         <input type="file" id="filePdfFindText" accept="application/pdf" onchange="ffilePdfFindText(event)">
       </div>
       <div class="column">
-        <label for="filePdfReplaceFont">REPLACE FONT<span class="tooltip">Choose a PDF-file to replace font</span></label>
+        <label for="filePdfReplaceFont">REPLACE FONT<span class="tooltip">Replace font in a PDF-file</span></label>
         <input type="file" id="filePdfReplaceFont" accept="application/pdf" onchange="ffilePdfReplaceFont(event)">
       </div>
       <div class="column">
-        <label for="filePdfValidatePDFA">VALIDATE PDF/A<span class="tooltip">Choose a PDF-file to validate PDF/A compatibility</span></label>
+        <label for="filePdfValidatePDFA">VALIDATE PDF/A<span class="tooltip">Validate PDF/A compatibility a PDF-file</span></label>
         <input type="file" id="filePdfValidatePDFA" accept="application/pdf" onchange="ffilePdfValidatePDFA(event)">
       </div>
       <div class="column">
-        <label for="filePdfFindHiddenText">FIND HIDDEN TEXT<span class="tooltip">Choose a PDF-file to find hidden text</span></label>
+        <label for="filePdfFindHiddenText">FIND HIDDEN TEXT<span class="tooltip">Find hidden text in a PDF-file</span></label>
         <input type="file" id="filePdfFindHiddenText" accept="application/pdf" onchange="ffilePdfFindHiddenText(event)">
       </div>
       <div class="column">
-        <label for="filePdfDeleteHiddenText">DEL HIDDEN TEXT<span class="tooltip">Choose a PDF-file to delete hidden text</span></label>
+        <label for="filePdfDeleteHiddenText">DEL HIDDEN TEXT<span class="tooltip">Delete hidden text from a PDF-file</span></label>
         <input type="file" id="filePdfDeleteHiddenText" accept="application/pdf" onchange="ffilePdfDeleteHiddenText(event)">
+      </div>
+      <div class="column">
+        <label for="filePdfAddWatermark">ADD WATERMARK<span class="tooltip">Add watermark to a PDF-file</span></label>
+        <input type="file" id="filePdfAddWatermark" accept="application/pdf" onchange="ffilePdfAddWatermark(event)">
+      </div>
+      <div class="column">
+        <label for="filePdfDeleteWatermarks">DEL WATERMARKS<span class="tooltip">Delete watermarks from a PDF-file</span></label>
+        <input type="file" id="filePdfDeleteWatermarks" accept="application/pdf" onchange="ffilePdfDeleteWatermarks(event)">
       </div>
     </div>
   </div>
@@ -1072,6 +1080,28 @@
       if (json.errorCode == 0) document.getElementById('output').textContent = "Words count      : " + json.words
                                                                            + "\nCharacters count : " + json.characters;
       else document.getElementById('output').textContent = json.errorText;
+    };
+    file_reader.readAsArrayBuffer(e.target.files[0]);
+  };
+
+  var ffilePdfAddWatermark = function (e) {
+    const file_reader = new FileReader();
+    file_reader.onload = (event) => {
+      const json = AsposePdfAddWatermark(event.target.result, e.target.files[0].name, "Aspose PDF", "Arial", 32, "#010101", 100, 100, 45, 1, 0.5, "ResultPdfAddWatermark.pdf");
+      if (json.errorCode == 0) document.getElementById('output').textContent = json.fileNameResult;
+      else document.getElementById('output').textContent = json.errorText;
+      DownloadFile(json.fileNameResult, "application/pdf");
+    }
+    file_reader.readAsArrayBuffer(e.target.files[0]);
+  }
+
+  var ffilePdfDeleteWatermarks = function (e) {
+    const file_reader = new FileReader();
+    file_reader.onload = (event) => {
+      const json = AsposePdfDeleteWatermarks(event.target.result, e.target.files[0].name, "ResultPdfDeleteWatermarks.pdf");
+      if (json.errorCode == 0) document.getElementById('output').textContent = json.fileNameResult;
+      else document.getElementById('output').textContent = json.errorText;
+      DownloadFile(json.fileNameResult, "application/pdf");
     };
     file_reader.readAsArrayBuffer(e.target.files[0]);
   };

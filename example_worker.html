@@ -82,6 +82,8 @@
       <option value="AsposePdfValidatePDFA">Validate PDF/A compatibility a PDF-file</option>
       <option value="AsposePdfFindHiddenText">Find hidden text in a PDF-file</option>
       <option value="AsposePdfDeleteHiddenText">Delete hidden text from a PDF-file</option>
+      <option value="AsposePdfAddWatermark">Add watermark to a PDF-file</option>
+      <option value="AsposePdfDeleteWatermarks">Delete watermarks from a PDF-file</option>
 
     <optgroup label="Metadata PDF">
       <option value="AsposePdfSetInfo">Set info (metadata) in a PDF-file</option>
@@ -307,7 +309,7 @@
             // AsposePdfSetBackgroundColor, AsposePdfDeleteAnnotations, AsposePdfDeleteBookmarks,
             // AsposePdfDeleteAttachments, AsposePdfDeleteImages, AsposePdfDeleteJavaScripts,
             // AsposePdfFromTxt, AsposePdfAddAttachment, AsposePdfReplaceText, AsposePdfFromImage,
-            // AsposePdfReplaceFont, AsposePdfDeleteHiddenText
+            // AsposePdfReplaceFont, AsposePdfDeleteHiddenText, AsposePdfAddWatermark, AsposePdfDeleteWatermarks
             DownloadFile(json.fileNameResult, "application/pdf", params[0]);
         }
       }
@@ -581,11 +583,24 @@
           transfer = [event.target.result];
           params = [event.target.result, ffile.name, pdfFormatValidate, `Result${operation}.xml`];
           break;
+        case 'AsposePdfAddWatermark':
+          const text = "Aspose PDF";
+          const fontName = "Arial";
+          const fontSize = 32;
+          const foregroundColor = "#010101";
+          const xPosition = 100;
+          const yPosition = 100;
+          const rotation2 = 45;
+          const isBackground2 = 1;
+          const opacity2 = 0.5;
+          transfer = [event.target.result];
+          params = [event.target.result, ffile.name, text, fontName, fontSize, foregroundColor, xPosition, yPosition, rotation2, isBackground2, opacity2, `Result${operation}.pdf`];
+          break;
         default:
           // AsposePdfOptimize, AsposePdfAddPageNum, AsposePdfConvertToGrayscale, AsposePdfAConvertToPDF,
           // AsposePdfRemoveMetadata, AsposePdfRepair, AsposePdfOptimizeResource, AsposePdfDeleteAnnotations,
           // AsposePdfDeleteBookmarks, AsposePdfDeleteAttachments, AsposePdfDeleteImages, AsposePdfDeleteJavaScripts,
-          // AsposePdfFromTxt, AsposePdfFindHiddenText, AsposePdfDeleteHiddenText
+          // AsposePdfFromTxt, AsposePdfFindHiddenText, AsposePdfDeleteHiddenText, AsposePdfDeleteWatermarks
           transfer = [event.target.result];
           params = [event.target.result, ffile.name, `Result${operation}.pdf`];
       }
