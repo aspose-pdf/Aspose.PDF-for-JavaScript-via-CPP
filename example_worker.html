@@ -84,6 +84,7 @@
       <option value="AsposePdfDeleteHiddenText">Delete hidden text from a PDF-file</option>
       <option value="AsposePdfAddWatermark">Add watermark to a PDF-file</option>
       <option value="AsposePdfDeleteWatermarks">Delete watermarks from a PDF-file</option>
+      <option value="AsposePdfMergeLayers">Merge layers a PDF-file</option>
 
     <optgroup label="Metadata PDF">
       <option value="AsposePdfSetInfo">Set info (metadata) in a PDF-file</option>
@@ -91,6 +92,7 @@
       <option value="AsposePdfGetAllFonts">Get list fonts from a PDF-file</option>
       <option value="AsposePdfRemoveMetadata">Remove metadata from a PDF-file</option>
       <option value="AsposePdfGetWordsCharactersCount">Get words and characters count in a PDF-file</option>
+      <option value="AsposePdfGetPagesLayers">Get list layers from a PDF-file</option>
 
     <optgroup label="Security PDF">
       <option value="AsposePdfEncrypt">Encrypt a PDF-file</option>
@@ -174,6 +176,9 @@
             let listFonts = 'Fonts:';
             json.fonts.forEach(({fontName}) => listFonts += `\n${fontName}`);
             document.getElementById('output').textContent = listFonts;
+            break;
+          case 'AsposePdfGetPagesLayers':
+            document.getElementById('output').textContent = 'Layers:\n' + json.pagesLayers.map((layer, index) => `page #${index + 1}: ${layer.join('; ')}`).join('\n');
             break;
           case 'AsposePdfFindText':
           case 'AsposePdfFindHiddenText':
@@ -310,6 +315,7 @@
             // AsposePdfDeleteAttachments, AsposePdfDeleteImages, AsposePdfDeleteJavaScripts,
             // AsposePdfFromTxt, AsposePdfAddAttachment, AsposePdfReplaceText, AsposePdfFromImage,
             // AsposePdfReplaceFont, AsposePdfDeleteHiddenText, AsposePdfAddWatermark, AsposePdfDeleteWatermarks
+            // AsposePdfMergeLayers
             DownloadFile(json.fileNameResult, "application/pdf", params[0]);
         }
       }
@@ -337,6 +343,7 @@
         case 'AsposePdfGetInfo':
         case 'AsposePdfGetAllFonts':
         case 'AsposePdfGetWordsCharactersCount':
+        case 'AsposePdfGetPagesLayers':
           transfer = [event.target.result];
           params = [event.target.result, ffile.name];
           break;
@@ -595,6 +602,10 @@
           const opacity2 = 0.5;
           transfer = [event.target.result];
           params = [event.target.result, ffile.name, text, fontName, fontSize, foregroundColor, xPosition, yPosition, rotation2, isBackground2, opacity2, `Result${operation}.pdf`];
+          break;
+        case 'AsposePdfMergeLayers':
+          transfer = [event.target.result];
+          params = [event.target.result, ffile.name, "MergedLayer", `Result${operation}.pdf`];
           break;
         default:
           // AsposePdfOptimize, AsposePdfAddPageNum, AsposePdfConvertToGrayscale, AsposePdfAConvertToPDF,

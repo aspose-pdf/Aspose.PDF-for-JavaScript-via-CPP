@@ -256,6 +256,10 @@
         <label for="filePdfDeleteWatermarks">DEL WATERMARKS<span class="tooltip">Delete watermarks from a PDF-file</span></label>
         <input type="file" id="filePdfDeleteWatermarks" accept="application/pdf" onchange="ffilePdfDeleteWatermarks(event)">
       </div>
+      <div class="column">
+        <label for="filePdfMergeLayers">MERGE LAYERS<span class="tooltip">Merge layers a PDF-file</span></label>
+        <input type="file" id="filePdfMergeLayers" accept="application/pdf" onchange="ffilePdfMergeLayers(event)">
+      </div>
     </div>
   </div>
 
@@ -280,6 +284,10 @@
       <div class="column">
         <label for="filePdfGetWordsCharactersCount">GET WORDS<span class="tooltip">Get words and characters count in a PDF-file</span></label>
         <input type="file" id="filePdfGetWordsCharactersCount" accept="application/pdf" onchange="ffilePdfGetWordsCharactersCount(event)">
+      </div>
+      <div class="column">
+        <label for="filePdfGetPagesLayers">GET LAYERS<span class="tooltip">Get list layers from a PDF-file</span></label>
+        <input type="file" id="filePdfGetPagesLayers" accept="application/pdf" onchange="ffilePdfGetPagesLayers(event)">
       </div>
     </div>
   </div>
@@ -1101,6 +1109,29 @@
       const json = AsposePdfDeleteWatermarks(event.target.result, e.target.files[0].name, "ResultPdfDeleteWatermarks.pdf");
       if (json.errorCode == 0) document.getElementById('output').textContent = json.fileNameResult;
       else document.getElementById('output').textContent = json.errorText;
+      DownloadFile(json.fileNameResult, "application/pdf");
+    };
+    file_reader.readAsArrayBuffer(e.target.files[0]);
+  };
+
+  var ffilePdfGetPagesLayers = function (e) {
+    const file_reader = new FileReader();
+    file_reader.onload = (event) => {
+      const json = AsposePdfGetPagesLayers(event.target.result, e.target.files[0].name);
+      if (json.errorCode == 0) document.getElementById('output').textContent = "JSON:\n" + JSON.stringify(json, null, 4);
+      else document.getElementById('output').textContent = json.errorText;
+    };
+    file_reader.readAsArrayBuffer(e.target.files[0]);
+  };
+
+  var ffilePdfMergeLayers = function (e) {
+    const file_reader = new FileReader();
+    file_reader.onload = (event) => {
+      /*Merge layers a PDF-file and save the "ResultPdfMergeLayers.pdf"*/
+      const json = AsposePdfMergeLayers(event.target.result, e.target.files[0].name, "MergedLayer", "ResultPdfMergeLayers.pdf");
+      if (json.errorCode == 0) document.getElementById('output').textContent = json.fileNameResult;
+      else document.getElementById('output').textContent = json.errorText;
+      /*Make a link to download the result file*/
       DownloadFile(json.fileNameResult, "application/pdf");
     };
     file_reader.readAsArrayBuffer(e.target.files[0]);
