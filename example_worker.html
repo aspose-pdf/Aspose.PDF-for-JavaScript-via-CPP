@@ -85,6 +85,7 @@
       <option value="AsposePdfAddWatermark">Add watermark to a PDF-file</option>
       <option value="AsposePdfDeleteWatermarks">Delete watermarks from a PDF-file</option>
       <option value="AsposePdfMergeLayers">Merge layers a PDF-file</option>
+      <option value="AsposePdfFlatten">Flatten a PDF-file</option>
 
     <optgroup label="Metadata PDF">
       <option value="AsposePdfSetInfo">Set info (metadata) in a PDF-file</option>
@@ -315,7 +316,7 @@
             // AsposePdfDeleteAttachments, AsposePdfDeleteImages, AsposePdfDeleteJavaScripts,
             // AsposePdfFromTxt, AsposePdfAddAttachment, AsposePdfReplaceText, AsposePdfFromImage,
             // AsposePdfReplaceFont, AsposePdfDeleteHiddenText, AsposePdfAddWatermark, AsposePdfDeleteWatermarks
-            // AsposePdfMergeLayers
+            // AsposePdfMergeLayers, AsposePdfFlatten
             DownloadFile(json.fileNameResult, "application/pdf", params[0]);
         }
       }
@@ -611,7 +612,8 @@
           // AsposePdfOptimize, AsposePdfAddPageNum, AsposePdfConvertToGrayscale, AsposePdfAConvertToPDF,
           // AsposePdfRemoveMetadata, AsposePdfRepair, AsposePdfOptimizeResource, AsposePdfDeleteAnnotations,
           // AsposePdfDeleteBookmarks, AsposePdfDeleteAttachments, AsposePdfDeleteImages, AsposePdfDeleteJavaScripts,
-          // AsposePdfFromTxt, AsposePdfFindHiddenText, AsposePdfDeleteHiddenText, AsposePdfDeleteWatermarks
+          // AsposePdfFromTxt, AsposePdfFindHiddenText, AsposePdfDeleteHiddenText, AsposePdfDeleteWatermarks,
+          // AsposePdfFlatten
           transfer = [event.target.result];
           params = [event.target.result, ffile.name, `Result${operation}.pdf`];
       }
