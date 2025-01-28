@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8">
+  <title>Aspose.PDF for JavaScript via C++</title>
+</head>
+
+<body>
+  <label for="fileReplaceTextPages">Choose a PDF-file to replace text on pages</label>
+  <input type="file" id="fileReplaceTextPages" accept="application/pdf" onchange="ffileReplaceTextPages(event)">
+  <br>
+  <pre id="output"></pre>
+</body>
+<!-- Load and initiate Aspose.PDF for JavaScript via C++ -->
+<script type="text/javascript" async src="AsposePDFforJS.js"></script>
+<script type="text/javascript">
+/// [Code snippet]
+  var ffileReplaceTextPages = function (e) {
+    const file_reader = new FileReader();
+    file_reader.onload = (event) => {
+
+      /*string, include number pages with interval: "7, 20, 22, 30-32, 33, 36-40, 46"*/
+      const numPages = "1-3";
+      /*array, array of number pages*/
+      /*const numPages = [1,3];*/
+      /*number, number page*/
+      /*const numPages = 1;*/
+      /*if numPages == 0 then all pages*/
+
+      /*Replace text on 1-3 pages in a PDF-file and save the "ResultReplaceTextPages.pdf"*/
+      const json = AsposePdfReplaceTextPages(event.target.result, e.target.files[0].name, "Aspose", "ASPOSE", numPages, "ResultReplaceTextPages.pdf");
+      if (json.errorCode == 0) document.getElementById('output').textContent = json.fileNameResult;
+      else document.getElementById('output').textContent = json.errorText;
+      /*Make a link to download the result file*/
+      DownloadFile(json.fileNameResult, "application/pdf");
+    };
+    file_reader.readAsArrayBuffer(e.target.files[0]);
+  };
+/// [Code snippet]
+</script>
+
+</html>

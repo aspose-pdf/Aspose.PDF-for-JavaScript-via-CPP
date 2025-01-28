@@ -77,6 +77,7 @@
       <option value="AsposePdfAddAttachment">Add attachment to a PDF-file</option>
       <option value="AsposePdfGetAttachment">Get attachment from a PDF-file</option>
       <option value="AsposePdfReplaceText">Replace text in a PDF-file</option>
+      <option value="AsposePdfReplaceTextPages">Replace text on pages in a PDF-file</option>
       <option value="AsposePdfFindText">Find text in a PDF-file</option>
       <option value="AsposePdfReplaceFont">Replace font in a PDF-file</option>
       <option value="AsposePdfValidatePDFA">Validate PDF/A compatibility a PDF-file</option>
@@ -316,7 +317,7 @@
             // AsposePdfDeleteAttachments, AsposePdfDeleteImages, AsposePdfDeleteJavaScripts,
             // AsposePdfFromTxt, AsposePdfAddAttachment, AsposePdfReplaceText, AsposePdfFromImage,
             // AsposePdfReplaceFont, AsposePdfDeleteHiddenText, AsposePdfAddWatermark, AsposePdfDeleteWatermarks
-            // AsposePdfMergeLayers, AsposePdfFlatten
+            // AsposePdfMergeLayers, AsposePdfFlatten, AsposePdfReplaceTextPages
             DownloadFile(json.fileNameResult, "application/pdf", params[0]);
         }
       }
@@ -562,6 +563,13 @@
           const replaceText = 'ASPOSE';
           transfer = [event.target.result];
           params = [event.target.result, ffile.name, findText, replaceText, `Result${operation}.pdf`];
+          break;
+        case 'AsposePdfReplaceTextPages':
+          const findTextPages = 'Aspose';
+          const replaceTextPages = 'ASPOSE';
+          const numReplaceTextPages = 1;
+          transfer = [event.target.result];
+          params = [event.target.result, ffile.name, findTextPages, replaceTextPages, numReplaceTextPages, `Result${operation}.pdf`];
           break;
         case 'AsposePdfFindText':
           const searchText = 'Aspose';

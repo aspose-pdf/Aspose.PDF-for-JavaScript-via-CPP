@@ -229,6 +229,10 @@
         <input type="file" id="filePdfReplaceText" accept="application/pdf" onchange="ffilePdfReplaceText(event)">
       </div>
       <div class="column">
+        <label for="filePdfReplaceTextPages">REPLACE TEXT PAGES<span class="tooltip">Replace text on pages in a PDF-file</span></label>
+        <input type="file" id="filePdfReplaceTextPages" accept="application/pdf" onchange="ffilePdfReplaceTextPages(event)">
+      </div>
+      <div class="column">
         <label for="filePdfFindText">FIND TEXT<span class="tooltip">Find text in a PDF-file</span></label>
         <input type="file" id="filePdfFindText" accept="application/pdf" onchange="ffilePdfFindText(event)">
       </div>
@@ -1012,6 +1016,17 @@
     const file_reader = new FileReader();
     file_reader.onload = (event) => {
       const json = AsposePdfReplaceText(event.target.result, e.target.files[0].name, "PDF", "pdf", "ResultPdfReplaceText.pdf");
+      if (json.errorCode == 0) document.getElementById('output').textContent = json.fileNameResult;
+      else document.getElementById('output').textContent = json.errorText;
+      DownloadFile(json.fileNameResult, "application/pdf");
+    }
+    file_reader.readAsArrayBuffer(e.target.files[0]);
+  }
+
+  var ffilePdfReplaceTextPages = function (e) {
+    const file_reader = new FileReader();
+    file_reader.onload = (event) => {
+      const json = AsposePdfReplaceTextPages(event.target.result, e.target.files[0].name, "PDF", "pdf", 1,"ResultPdfReplaceTextPages.pdf");
       if (json.errorCode == 0) document.getElementById('output').textContent = json.fileNameResult;
       else document.getElementById('output').textContent = json.errorText;
       DownloadFile(json.fileNameResult, "application/pdf");
