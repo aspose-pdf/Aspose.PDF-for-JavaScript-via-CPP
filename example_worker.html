@@ -88,6 +88,8 @@
       <option value="AsposePdfMergeLayers">Merge layers a PDF-file</option>
       <option value="AsposePdfFlatten">Flatten a PDF-file</option>
       <option value="AsposePdfMakeBooklet">Make booklet from a PDF-file</option>
+      <option value="AsposePdfMakeNUp">Make N-Up document from a PDF-file</option>
+      <option value="AsposePdfDeleteBlankPages">Delete blank pages from a PDF-file</option>
 
     <optgroup label="Metadata PDF">
       <option value="AsposePdfSetInfo">Set info (metadata) in a PDF-file</option>
@@ -317,8 +319,9 @@
             // AsposePdfSetBackgroundColor, AsposePdfDeleteAnnotations, AsposePdfDeleteBookmarks,
             // AsposePdfDeleteAttachments, AsposePdfDeleteImages, AsposePdfDeleteJavaScripts,
             // AsposePdfFromTxt, AsposePdfAddAttachment, AsposePdfReplaceText, AsposePdfFromImage,
-            // AsposePdfReplaceFont, AsposePdfDeleteHiddenText, AsposePdfAddWatermark, AsposePdfDeleteWatermarks
-            // AsposePdfMergeLayers, AsposePdfFlatten, AsposePdfReplaceTextPages, AsposePdfMakeBooklet
+            // AsposePdfReplaceFont, AsposePdfDeleteHiddenText, AsposePdfAddWatermark, AsposePdfDeleteWatermarks,
+            // AsposePdfMergeLayers, AsposePdfFlatten, AsposePdfReplaceTextPages, AsposePdfMakeBooklet,
+            // AsposePdfMakeNUp, AsposePdfDeleteBlankPages
             DownloadFile(json.fileNameResult, "application/pdf", params[0]);
         }
       }
@@ -617,12 +620,18 @@
           transfer = [event.target.result];
           params = [event.target.result, ffile.name, "MergedLayer", `Result${operation}.pdf`];
           break;
+        case 'AsposePdfMakeNUp':
+          const columns = 2
+          const rows = 2
+          transfer = [event.target.result];
+          params = [event.target.result, ffile.name, columns, rows, `Result${operation}.pdf`];
+          break;
         default:
           // AsposePdfOptimize, AsposePdfAddPageNum, AsposePdfConvertToGrayscale, AsposePdfAConvertToPDF,
           // AsposePdfRemoveMetadata, AsposePdfRepair, AsposePdfOptimizeResource, AsposePdfDeleteAnnotations,
           // AsposePdfDeleteBookmarks, AsposePdfDeleteAttachments, AsposePdfDeleteImages, AsposePdfDeleteJavaScripts,
           // AsposePdfFromTxt, AsposePdfFindHiddenText, AsposePdfDeleteHiddenText, AsposePdfDeleteWatermarks,
-          // AsposePdfFlatten, AsposePdfMakeBooklet
+          // AsposePdfFlatten, AsposePdfMakeBooklet, AsposePdfDeleteBlankPages
           transfer = [event.target.result];
           params = [event.target.result, ffile.name, `Result${operation}.pdf`];
       }
