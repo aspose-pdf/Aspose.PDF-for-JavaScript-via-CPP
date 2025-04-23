@@ -24,7 +24,7 @@
       /*If not need to set value, use undefined or "" (empty string)*/
       /*Set info (metadata) in a PDF-file and save the "ResultSetInfo.pdf"*/
       const json = AsposePdfSetInfo(event.target.result, e.target.files[0].name, "Setting PDF Document Information", "", "Aspose", undefined, "Aspose.Pdf, DOM, API", undefined, "2008/12/21 12:15:12", "ResultSetInfo.pdf");
-      if (json.errorCode == 0) document.getElementById('output').textContent = json.fileNameResult;
+      if (json.errorCode == 0) document.getElementById('output').textContent = json.fileNameResult
       else document.getElementById('output').textContent = json.errorText;
       /*Make a link to download the result file*/
       DownloadFile(json.fileNameResult, "application/pdf");

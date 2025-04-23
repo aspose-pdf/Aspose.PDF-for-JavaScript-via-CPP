@@ -22,7 +22,7 @@
     file_reader.onload = (event) => {
       /*Add text in Header/Footer of a PDF-file and save the "ResultAddHeader.pdf"*/
       const json = AsposePdfAddTextHeaderFooter(event.target.result, e.target.files[0].name, "Aspose.PDF for JavaScript via C++", "", "ResultAddHeader.pdf");
-      if (json.errorCode == 0) document.getElementById('output').textContent = json.fileNameResult;
+      if (json.errorCode == 0) document.getElementById('output').textContent = json.fileNameResult
       else document.getElementById('output').textContent = json.errorText;
       /*Make a link to download the result file*/
       DownloadFile(json.fileNameResult, "application/pdf");

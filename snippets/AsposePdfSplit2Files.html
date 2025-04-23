@@ -24,7 +24,7 @@
       const pageToSplit = 1;
       /*Split to two PDF-files and save the "ResultSplit1.pdf", "ResultSplit2.pdf"*/
       const json = AsposePdfSplit2Files(event.target.result, e.target.files[0].name, pageToSplit, "ResultSplit1.pdf", "ResultSplit2.pdf");
-      if (json.errorCode == 0) document.getElementById('output').textContent = e.target.files[0].name + " split: " + json.fileNameResult1 + ", " + json.fileNameResult2;
+      if (json.errorCode == 0) document.getElementById('output').textContent = e.target.files[0].name + " split: " + json.fileNameResult1 + ", " + json.fileNameResult2
       else document.getElementById('output').textContent = json.errorText;
       /*Make a link to download the first result file*/
       DownloadFile(json.fileNameResult1, "application/pdf");

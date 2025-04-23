@@ -22,7 +22,7 @@
     file_reader.onload = (event) => {
       /*Encrypt a PDF-file with passwords "user" and "owner", and save the "ResultEncrypt.pdf"*/
       const json = AsposePdfEncrypt(event.target.result, e.target.files[0].name, "user", "owner", Module.Permissions.PrintDocument, Module.CryptoAlgorithm.RC4x40, "ResultEncrypt.pdf");
-      if (json.errorCode == 0) document.getElementById('output').textContent = json.fileNameResult;
+      if (json.errorCode == 0) document.getElementById('output').textContent = json.fileNameResult
       else document.getElementById('output').textContent = json.errorText;
       /*Make a link to download the result file*/
       DownloadFile(json.fileNameResult, "application/pdf");

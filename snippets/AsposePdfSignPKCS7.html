@@ -60,7 +60,7 @@
       let pswSign = document.getElementById("passwordSign").value;
       /*Sign a PDF-file with digital signatures and save the "ResultSignPKCS7.pdf"*/
       const json = AsposePdfSignPKCS7(event.target.result, e.target.files[0].name, 1, fileSign, pswSign, 200, 200, 200, 100, "TEST", "test@test.com", "EU", 1, signatureAppearance,"ResultSignPKCS7.pdf");
-      if (json.errorCode == 0) document.getElementById('output').textContent = json.fileNameResult;
+      if (json.errorCode == 0) document.getElementById('output').textContent = json.fileNameResult
       else document.getElementById('output').textContent = json.errorText;
       /*Make a link to download the result file*/
       DownloadFile(json.fileNameResult, "application/pdf");

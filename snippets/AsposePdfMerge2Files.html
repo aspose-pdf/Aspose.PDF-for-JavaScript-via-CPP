@@ -24,7 +24,7 @@
       if (index >= e.target.files.length || index >= 2) {
         /*Merge two PDF-files and save the "ResultMerge.pdf"*/
         const json = AsposePdfMerge2Files(undefined, undefined, e.target.files[0].name, e.target.files[1].name, "ResultMerge.pdf");
-        if (json.errorCode == 0) document.getElementById('output').textContent = json.fileNameResult;
+        if (json.errorCode == 0) document.getElementById('output').textContent = json.fileNameResult
         else document.getElementById('output').textContent = json.errorText;
         /*Make a link to download the result file*/
         DownloadFile(json.fileNameResult, "application/pdf");

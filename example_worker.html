@@ -62,6 +62,7 @@
       <option value="AsposePdfRotateAllPages">Rotate PDF-pages</option>
       <option value="AsposePdfDeletePages">Delete pages from a PDF-file</option>
       <option value="AsposePdfAddStamp">Add stamp to a PDF-file</option>
+      <option value="AsposePdfAddStampPages">Add stamp to specific pages in a PDF-file</option>
       <option value="AsposePdfAddImage">Add an image to end a PDF-file</option>
       <option value="AsposePdfAddPageNum">Add page number to a PDF-file</option>
       <option value="AsposePdfAddBackgroundImage">Add background image to a PDF-file</option>
@@ -321,7 +322,7 @@
             // AsposePdfFromTxt, AsposePdfAddAttachment, AsposePdfReplaceText, AsposePdfFromImage,
             // AsposePdfReplaceFont, AsposePdfDeleteHiddenText, AsposePdfAddWatermark, AsposePdfDeleteWatermarks,
             // AsposePdfMergeLayers, AsposePdfFlatten, AsposePdfReplaceTextPages, AsposePdfMakeBooklet,
-            // AsposePdfMakeNUp, AsposePdfDeleteBlankPages
+            // AsposePdfMakeNUp, AsposePdfDeleteBlankPages, AsposePdfAddStampPages
             DownloadFile(json.fileNameResult, "application/pdf", params[0]);
         }
       }
@@ -500,6 +501,19 @@
           const setOpacity = 0.5;
           transfer = [event.target.result];
           params = [event.target.result, ffile.name, fileNameStamp, setBackground, setXIndent_, setYIndent_, setHeight_, setWidth_, rotation_, setOpacity, `Result${operation}.pdf`];
+          break;
+        case 'AsposePdfAddStampPages':
+          const fileNameStampPages = '/Aspose.jpg'; //see option #1 uploading additional files
+          const setBackgroundPages = 0;
+          const setXIndent_Pages = 15;
+          const setYIndent_Pages = 15;
+          const setHeight_Pages = 50;
+          const setWidth_Pages = 50;
+          const rotation_Pages = 'Module.Rotation.on90';
+          const setOpacityPages = 0.7;
+          const numPagePages = 1;
+          transfer = [event.target.result];
+          params = [event.target.result, ffile.name, fileNameStampPages, setBackgroundPages, setXIndent_Pages, setYIndent_Pages, setHeight_Pages, setWidth_Pages, rotation_Pages, setOpacityPages, numPagePages, `Result${operation}.pdf`];
           break;
         case 'AsposePdfSignPKCS7':
           const pageNum = 1;

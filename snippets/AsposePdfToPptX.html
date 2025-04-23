@@ -22,7 +22,7 @@
     file_reader.onload = (event) => {
       /*Convert a PDF-file to PptX and save the "ResultPDFtoPptX.pptx"*/
       const json = AsposePdfToPptX(event.target.result, e.target.files[0].name, "ResultPDFtoPptX.pptx");
-      if (json.errorCode == 0) document.getElementById('output').textContent = json.fileNameResult;
+      if (json.errorCode == 0) document.getElementById('output').textContent = json.fileNameResult
       else document.getElementById('output').textContent = json.errorText;
       /*Make a link to download the result file*/
       DownloadFile(json.fileNameResult, "application/vnd.openxmlformats-officedocument.presentationml.presentation");

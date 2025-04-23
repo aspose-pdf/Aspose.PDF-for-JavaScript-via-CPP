@@ -22,7 +22,7 @@
     file_reader.onload = (event) => {
       /*Convert a PDF-file to Xps and save the "ResultPDFtoXps.xps"*/
       const json = AsposePdfToXps(event.target.result, e.target.files[0].name, "ResultPDFtoXps.xps");
-      if (json.errorCode == 0) document.getElementById('output').textContent = json.fileNameResult;
+      if (json.errorCode == 0) document.getElementById('output').textContent = json.fileNameResult
       else document.getElementById('output').textContent = json.errorText;
       /*Make a link to download the result file*/
       DownloadFile(json.fileNameResult, "application/vnd.ms-xpsdocument");

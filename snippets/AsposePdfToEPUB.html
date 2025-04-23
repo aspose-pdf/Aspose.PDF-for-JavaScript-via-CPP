@@ -22,7 +22,7 @@
     file_reader.onload = (event) => {
       /*Convert a PDF-file to EPUB and save the "ResultPDFtoEPUB.epub"*/
       const json = AsposePdfToEPUB(event.target.result, e.target.files[0].name, "ResultPDFtoEPUB.epub");
-      if (json.errorCode == 0) document.getElementById('output').textContent = json.fileNameResult;
+      if (json.errorCode == 0) document.getElementById('output').textContent = json.fileNameResult
       else document.getElementById('output').textContent = json.errorText;
       /*Make a link to download the result file*/
       DownloadFile(json.fileNameResult, "application/epub+zip");

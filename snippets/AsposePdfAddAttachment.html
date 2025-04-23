@@ -38,7 +38,7 @@
     file_reader.onload = (event) => {
       /*Add attachment to a PDF-file and save the "ResultPdfAddAttachment.pdf"*/
       const json = AsposePdfAddAttachment(event.target.result, e.target.files[0].name, fileAttachment, 'Description', "ResultPdfAddAttachment.pdf");
-      if (json.errorCode == 0) document.getElementById('output').textContent = json.fileNameResult;
+      if (json.errorCode == 0) document.getElementById('output').textContent = json.fileNameResult
       else document.getElementById('output').textContent = json.errorText;
       /*Make a link to download the result file*/
       DownloadFile(json.fileNameResult, "application/pdf");

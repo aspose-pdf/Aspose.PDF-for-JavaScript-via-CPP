@@ -22,7 +22,7 @@
     file_reader.onload = (event) => {
       /*Add watermark to a PDF-file and save the "ResultPdfAddWatermark.pdf"*/
       const json = AsposePdfAddWatermark(event.target.result, e.target.files[0].name, "Aspose PDF", "Arial", 32, "#010101", 100, 100, 45, 1, 0.5, "ResultPdfAddWatermark.pdf");
-      if (json.errorCode == 0) document.getElementById('output').textContent = json.fileNameResult;
+      if (json.errorCode == 0) document.getElementById('output').textContent = json.fileNameResult
       else document.getElementById('output').textContent = json.errorText;
       /*Make a link to download the result file*/
       DownloadFile(json.fileNameResult, "application/pdf");

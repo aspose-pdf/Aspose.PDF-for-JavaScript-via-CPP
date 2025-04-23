@@ -22,7 +22,7 @@
     file_reader.onload = (event) => {
       /*Find text in a PDF-file*/
       const json = AsposePdfFindText(event.target.result, e.target.files[0].name, "Aspose");
-      if (json.errorCode == 0) document.getElementById('output').textContent = "JSON:\n" + JSON.stringify(json, null, 4);
+      if (json.errorCode == 0) document.getElementById('output').textContent = "JSON:\n" + JSON.stringify(json, null, 4)
       else document.getElementById('output').textContent = json.errorText;
     };
     file_reader.readAsArrayBuffer(e.target.files[0]);
