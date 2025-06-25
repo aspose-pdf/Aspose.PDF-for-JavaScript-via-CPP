@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8">
+  <title>Aspose.PDF for JavaScript via C++</title>
+</head>
+
+<body>
+  <label for="filePdfOptimizeFileSize">Choose a PDF-file to optimize size with image compression quality</label>
+  <input type="file" id="filePdfOptimizeFileSize" accept="application/pdf" onchange="ffilePdfOptimizeFileSize(event)">
+  <br>
+  <pre id="output"></pre>
+</body>
+<!-- Load and initiate Aspose.PDF for JavaScript via C++ -->
+<script type="text/javascript" async src="AsposePDFforJS.js"></script>
+<script type="text/javascript">
+/// [Code snippet]
+  var ffilePdfOptimizeFileSize = function (e) {
+    const file_reader = new FileReader();
+    file_reader.onload = (event) => {
+      const imageQuality = 50;
+      /*Optimize size of PDF-file with image compression quality and save the "ResultPdfOptimizeFileSize.pdf"*/
+      const json = AsposePdfOptimizeFileSize(event.target.result, e.target.files[0].name, imageQuality, "ResultPdfOptimizeFileSize.pdf");
+      if (json.errorCode == 0) document.getElementById('output').textContent = json.fileNameResult
+      else document.getElementById('output').textContent = json.errorText;
+      /*Make a link to download the result file*/
+      DownloadFile(json.fileNameResult, "application/pdf");
+    };
+    file_reader.readAsArrayBuffer(e.target.files[0]);
+  };
+/// [Code snippet]
+</script>
+
+</html>

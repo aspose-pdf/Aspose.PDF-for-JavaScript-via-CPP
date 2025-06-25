@@ -10,26 +10,62 @@ Add PDF processing, manipulation, and conversion features to your front-end appl
   </a>
 </p>
 
-## PDF Processing via JavaScript
+## PDF Processing
 
-- **Extract text** from PDF pages or search for a particular text segment using regular expressions.
-- **Add or extract** images to & from PDF documents.
-- **Concatenate** or **split** PDF files.
-- **Linearization** of PDF documents for web optimization.
-- **Convert** PDF documents to Office, web, and image formats with the highest visual fidelity.
-- **Manipulate** PDF files to manage bookmarks, hyperlinks, watermarks, attachments & annotations.
-- **Encrypt** or **decrypt** PDF documents and set document privileges or modify passwords.
-- **Digitally sign PDF** documents or remove signatures. Also, verify if the PDF is signed and the signature is valid.
+- **Extract text** from PDF pages, including search via regular expressions and hidden text detection.
+- **Add or extract images** to and from PDF documents; remove or replace images when needed.
+- **Concatenate**, **split**, or **reorganize** PDF files; delete specific or blank pages.
+- **Linearize** PDF documents for web optimization and **optimize** internal structure and resources.
+- **Convert** PDF documents to:
+  - **Office formats:** DOC, DOCX, XLS, XLSX, PPTX
+  - **Web formats:** SVG, SVG (ZIP), XPS, EPUB
+  - **Image formats:** JPEG, PNG, BMP, TIFF, DICOM
+  - **Other formats:** Grayscale PDF, PDF/A, TeX, TXT
+- **Manipulate** PDF structure and content:
+  - Bookmarks, hyperlinks, annotations, attachments, JavaScript
+  - Fonts, metadata, layers, background color
+- **Secure PDF documents**:
+  - Encrypt, decrypt, set or change passwords
+  - Configure access permissions
+- **Digitally sign** PDFs using PKCS#7, validate and remove signatures.
+- **Add or remove** watermarks, stamps, page numbers, headers/footers, background images.
+- **Flatten** PDF documents (forms, annotations, layers).
+- **Create booklets** or generate **N-Up layouts**.
+- **Export form data** (AcroForm) to FDF, XFDF, XML.
+- **Validate** and **convert** to/from **PDF/A** format.
 
 ## Read & Write PDF & Other Formats
 
-**Fixed Layout:** PDF, PDF/A, PDF/UA
+**Fixed Layout Support:**
+- PDF, PDF/A
 
-## Save PDF Documents As
+**Save/Export As:**
+- **Office:** DOC, DOCX, XLS, XLSX, PPTX
+- **Images:** JPEG, PNG, BMP, TIFF, DICOM
+- **Other:** EPUB, SVG, SVG (ZIP), TeX, TXT, Grayscale PDF, PDF/A, XPS
 
-- **Microsoft Office:** DOC, DOCX, XLS, XLSX, PPTX
-- **Images:** JPEG, PNG, BMP, TIFF, EMF
-- **Others:** EPUB, DICOM, SVG, SVG(ZIP), GRAYSCALE PDF, PDF/A, TEX, TXT
+**Input Formats:**
+- TXT, Images (JPEG/PNG/BMP/TIFF)
+
+## Advanced Features
+
+- **Fonts:** List, embed/unembed, and replace fonts in PDF files.
+- **Metadata:** Set, extract, or remove metadata.
+- **Layers:** Get list of layers, merge or flatten them.
+- **Forms & Annotations:**
+  - Delete annotations, bookmarks, JavaScript
+  - Flatten forms
+- **Attachments:** Add, extract, or delete file attachments.
+- **Text Tools:**
+  - Find, replace, or delete text (including hidden text)
+  - Get word and character counts
+
+## Additional Utilities
+
+- **Repair** corrupted or damaged PDF files.
+- **Generate PDF** from TXT or image files.
+- **Optimize** document resources and structure.
+- **Product diagnostics**: retrieve library info, version, and capabilities.
 
 ## Platform Independence
 
