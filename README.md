@@ -20,7 +20,7 @@ Add PDF processing, manipulation, and conversion features to your front-end appl
   - **Office formats:** DOC, DOCX, XLS, XLSX, PPTX
   - **Web formats:** SVG, SVG (ZIP), XPS, EPUB
   - **Image formats:** JPEG, PNG, BMP, TIFF, DICOM
-  - **Other formats:** Grayscale PDF, PDF/A, TeX, TXT
+  - **Other formats:** Grayscale PDF, PDF/A, TeX, TXT, Markdown
 - **Manipulate** PDF structure and content:
   - Bookmarks, hyperlinks, annotations, attachments, JavaScript
   - Fonts, metadata, layers, background color

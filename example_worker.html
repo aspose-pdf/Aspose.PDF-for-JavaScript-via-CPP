@@ -45,6 +45,7 @@
       <option value="AsposePdfToEPUB">Convert a PDF-file to ePub</option>
       <option value="AsposePdfToDoc">Convert a PDF-file to Doc</option>
       <option value="AsposePdfToPptX">Convert a PDF-file to PptX</option>
+      <option value="AsposePdfToMarkdown">Convert a PDF-file to Markdown</option>
       <option value="AsposePdfExtractText" selected>Extract text from a PDF-file</option>
       <option value="AsposePdfExtractImage">Extract image from a PDF-file</option>
       <option value="AsposePdfExportFdf">Export from a PDF-file with AcroForm to FDF</option>
@@ -275,6 +276,9 @@
           case 'AsposePdfToTxt':
             DownloadFile(json.fileNameResult, "text/plain", params[0]);
             break;
+          case 'AsposePdfToMarkdown':
+            DownloadFile(json.fileNameResult, "text/markdown", params[0]);
+            break;
           case 'AsposePdfTablesToCSV':
             document.getElementById('output').textContent = "Files(tables) count: " + json.filesCount.toString();
             for (let fileIndex = 0; fileIndex < json.filesCount; fileIndex++)
@@ -377,6 +381,10 @@
         case 'AsposePdfToTxt':
           transfer = [event.target.result];
           params = [event.target.result, ffile.name, `Result${operation}.txt`];
+          break;
+        case 'AsposePdfToMarkdown':
+          transfer = [event.target.result];
+          params = [event.target.result, ffile.name, `Result${operation}.md`];
           break;
         case 'AsposePdfToEPUB':
           transfer = [event.target.result];
