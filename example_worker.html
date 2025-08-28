@@ -41,6 +41,7 @@
       <option value="AsposePdfConvertToPDFA">Convert a PDF-file to PDF/A</option>
       <option value="AsposePdfAConvertToPDF">Convert a PDF/A-file to PDF</option>
       <option value="AsposePdfToDocX">Convert a PDF-file to DocX</option>
+      <option value="AsposePdfToDocXEnhanced">Convert a PDF-file to DocX with Enhanced Recognition Mode</option>
       <option value="AsposePdfToXlsX">Convert a PDF-file to XlsX</option>
       <option value="AsposePdfToEPUB">Convert a PDF-file to ePub</option>
       <option value="AsposePdfToDoc">Convert a PDF-file to Doc</option>
@@ -262,6 +263,7 @@
             DownloadFile(json.fileNameLogResult, "application/xml", params[1]);
             break;
           case 'AsposePdfToDocX':
+          case 'AsposePdfToDocXEnhanced':
             DownloadFile(json.fileNameResult, "application/vnd.openxmlformats-officedocument.wordprocessingml.document", params[0]);
             break;
           case 'AsposePdfToXlsX':
@@ -363,6 +365,7 @@
           params = [event.target.result, ffile.name];
           break;
         case 'AsposePdfToDocX':
+        case 'AsposePdfToDocXEnhanced':
           transfer = [event.target.result];
           params = [event.target.result, ffile.name, `Result${operation}.docx`];
           break;
