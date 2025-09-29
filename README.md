@@ -23,7 +23,7 @@ Add PDF processing, manipulation, and conversion features to your front-end appl
   - **Other formats:** Grayscale PDF, PDF/A, TeX, TXT, Markdown
 - **Manipulate** PDF structure and content:
   - Bookmarks, hyperlinks, annotations, attachments, JavaScript
-  - Fonts, metadata, layers, background color
+  - Fonts, metadata, layers, background color, tables
 - **Secure PDF documents**:
   - Encrypt, decrypt, set or change passwords
   - Configure access permissions
@@ -40,7 +40,7 @@ Add PDF processing, manipulation, and conversion features to your front-end appl
 - PDF, PDF/A
 
 **Save/Export As:**
-- **Office:** DOC, DOCX, XLS, XLSX, PPTX
+- **Office:** DOC, DOCX, DOCX(Enhanced Recognition Mode), XLS, XLSX, PPTX
 - **Images:** JPEG, PNG, BMP, TIFF, DICOM
 - **Other:** EPUB, SVG, SVG (ZIP), TeX, TXT, Grayscale PDF, PDF/A, XPS
 
@@ -53,7 +53,7 @@ Add PDF processing, manipulation, and conversion features to your front-end appl
 - **Metadata:** Set, extract, or remove metadata.
 - **Layers:** Get list of layers, merge or flatten them.
 - **Forms & Annotations:**
-  - Delete annotations, bookmarks, JavaScript
+  - Delete annotations, bookmarks, JavaScript, tables
   - Flatten forms
 - **Attachments:** Add, extract, or delete file attachments.
 - **Text Tools:**

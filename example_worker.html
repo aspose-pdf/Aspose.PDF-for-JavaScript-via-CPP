@@ -96,6 +96,7 @@
       <option value="AsposePdfEmbedFonts">Embed fonts a PDF-file</option>
       <option value="AsposePdfUnembedFonts">Unembed fonts a PDF-file</option>
       <option value="AsposePdfOptimizeFileSize">Optimize size of PDF-file with image compression quality</option>
+      <option value="AsposePdfDeleteTables">Delete tables from a PDF-file</option>
 
     <optgroup label="Metadata PDF">
       <option value="AsposePdfSetInfo">Set info (metadata) in a PDF-file</option>
@@ -332,7 +333,7 @@
             // AsposePdfReplaceFont, AsposePdfDeleteHiddenText, AsposePdfAddWatermark, AsposePdfDeleteWatermarks,
             // AsposePdfMergeLayers, AsposePdfFlatten, AsposePdfReplaceTextPages, AsposePdfMakeBooklet,
             // AsposePdfMakeNUp, AsposePdfDeleteBlankPages, AsposePdfAddStampPages, AsposePdfEmbedFonts, AsposePdfUnembedFonts,
-            // AsposePdfOptimizeFileSize
+            // AsposePdfOptimizeFileSize, AsposePdfDeleteTables,
             DownloadFile(json.fileNameResult, "application/pdf", params[0]);
         }
       }
@@ -666,6 +667,7 @@
           // AsposePdfDeleteBookmarks, AsposePdfDeleteAttachments, AsposePdfDeleteImages, AsposePdfDeleteJavaScripts,
           // AsposePdfFromTxt, AsposePdfFindHiddenText, AsposePdfDeleteHiddenText, AsposePdfDeleteWatermarks,
           // AsposePdfFlatten, AsposePdfMakeBooklet, AsposePdfDeleteBlankPages, AsposePdfEmbedFonts, AsposePdfUnembedFonts,
+          // AsposePdfDeleteTables
           transfer = [event.target.result];
           params = [event.target.result, ffile.name, `Result${operation}.pdf`];
       }
