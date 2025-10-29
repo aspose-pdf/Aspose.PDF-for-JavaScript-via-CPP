@@ -43,6 +43,7 @@
        Metadata count  : json.metadatacount
        JavaScript count: json.javascriptcount
        Image count     : json.imagecount
+       Table count     : json.tablecount
       */
       if (json.errorCode == 0) document.getElementById('output').textContent = "Title             : " + json.title
                                                                            + "\nCreator           : " + json.creator
@@ -66,6 +67,7 @@
                                                                            + "\nMetadata count    : " + json.metadatacount
                                                                            + "\nJavaScript count  : " + json.javascriptcount
                                                                            + "\nImage count       : " + json.imagecount
+                                                                           + "\nTable count       : " + json.tablecount
       else document.getElementById('output').textContent = json.errorText;
     };
     file_reader.readAsArrayBuffer(e.target.files[0]);
