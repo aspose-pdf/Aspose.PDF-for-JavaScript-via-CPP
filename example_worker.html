@@ -97,6 +97,7 @@
       <option value="AsposePdfUnembedFonts">Unembed fonts a PDF-file</option>
       <option value="AsposePdfOptimizeFileSize">Optimize size of PDF-file with image compression quality</option>
       <option value="AsposePdfDeleteTables">Delete tables from a PDF-file</option>
+      <option value="AsposePdfCropPages">Crop PDF-pages</option>
 
     <optgroup label="Metadata PDF">
       <option value="AsposePdfSetInfo">Set info (metadata) in a PDF-file</option>
@@ -334,7 +335,7 @@
             // AsposePdfReplaceFont, AsposePdfDeleteHiddenText, AsposePdfAddWatermark, AsposePdfDeleteWatermarks,
             // AsposePdfMergeLayers, AsposePdfFlatten, AsposePdfReplaceTextPages, AsposePdfMakeBooklet,
             // AsposePdfMakeNUp, AsposePdfDeleteBlankPages, AsposePdfAddStampPages, AsposePdfEmbedFonts, AsposePdfUnembedFonts,
-            // AsposePdfOptimizeFileSize, AsposePdfDeleteTables,
+            // AsposePdfOptimizeFileSize, AsposePdfDeleteTables, AsposePdfCropPages,
             DownloadFile(json.fileNameResult, "application/pdf", params[0]);
         }
       }
@@ -661,6 +662,11 @@
           const imageQuality = 25;
           transfer = [event.target.result];
           params = [event.target.result, ffile.name, imageQuality, `Result${operation}.pdf`];
+          break;
+        case 'AsposePdfCropPages':
+          const marginPages = 5;
+          transfer = [event.target.result];
+          params = [event.target.result, ffile.name, marginPages, `Result${operation}.pdf`];
           break;
         default:
           // AsposePdfOptimize, AsposePdfAddPageNum, AsposePdfConvertToGrayscale, AsposePdfAConvertToPDF,

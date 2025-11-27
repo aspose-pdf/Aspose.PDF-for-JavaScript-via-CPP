@@ -16,6 +16,7 @@ Add PDF processing, manipulation, and conversion features to your front-end appl
 - **Add or extract images** to and from PDF documents; remove or replace images when needed.
 - **Concatenate**, **split**, or **reorganize** PDF files; delete specific or blank pages.
 - **Linearize** PDF documents for web optimization and **optimize** internal structure and resources.
+- **Crop** PDF-pages.
 - **Convert** PDF documents to:
   - **Office formats:** DOC, DOCX, XLS, XLSX, PPTX, DOCX with Enhanced Recognition Mode
   - **Web formats:** SVG, SVG (ZIP), XPS, EPUB
