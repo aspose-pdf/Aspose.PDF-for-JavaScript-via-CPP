@@ -98,6 +98,8 @@
       <option value="AsposePdfOptimizeFileSize">Optimize size of PDF-file with image compression quality</option>
       <option value="AsposePdfDeleteTables">Delete tables from a PDF-file</option>
       <option value="AsposePdfCropPages">Crop PDF-pages</option>
+      <option value="AsposePdfDeleteTextHeaders">Delete text headers from a PDF-file</option>
+      <option value="AsposePdfDeleteTextFooters">Delete text footers from a PDF-file</option>
 
     <optgroup label="Metadata PDF">
       <option value="AsposePdfSetInfo">Set info (metadata) in a PDF-file</option>
@@ -674,7 +676,7 @@
           // AsposePdfDeleteBookmarks, AsposePdfDeleteAttachments, AsposePdfDeleteImages, AsposePdfDeleteJavaScripts,
           // AsposePdfFromTxt, AsposePdfFindHiddenText, AsposePdfDeleteHiddenText, AsposePdfDeleteWatermarks,
           // AsposePdfFlatten, AsposePdfMakeBooklet, AsposePdfDeleteBlankPages, AsposePdfEmbedFonts, AsposePdfUnembedFonts,
-          // AsposePdfDeleteTables
+          // AsposePdfDeleteTables, AsposePdfDeleteTextHeaders, AsposePdfDeleteTextFooters,
           transfer = [event.target.result];
           params = [event.target.result, ffile.name, `Result${operation}.pdf`];
       }
