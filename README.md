@@ -59,6 +59,7 @@ Add PDF processing, manipulation, and conversion features to your front-end appl
 - **Attachments:** Add, extract, or delete file attachments.
 - **Text Tools:**
   - Find, replace, or delete text (including hidden text)
+  - Replace multiple text fragments with alignment control
   - Get word and character counts
 
 ## Additional Utilities

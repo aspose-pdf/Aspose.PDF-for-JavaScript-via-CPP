@@ -100,6 +100,7 @@
       <option value="AsposePdfCropPages">Crop PDF-pages</option>
       <option value="AsposePdfDeleteTextHeaders">Delete text headers from a PDF-file</option>
       <option value="AsposePdfDeleteTextFooters">Delete text footers from a PDF-file</option>
+      <option value="AsposePdfReplaceTextEx">Replace multiple text fragments in a PDF-file with alignment control</option>
 
     <optgroup label="Metadata PDF">
       <option value="AsposePdfSetInfo">Set info (metadata) in a PDF-file</option>
@@ -337,7 +338,7 @@
             // AsposePdfReplaceFont, AsposePdfDeleteHiddenText, AsposePdfAddWatermark, AsposePdfDeleteWatermarks,
             // AsposePdfMergeLayers, AsposePdfFlatten, AsposePdfReplaceTextPages, AsposePdfMakeBooklet,
             // AsposePdfMakeNUp, AsposePdfDeleteBlankPages, AsposePdfAddStampPages, AsposePdfEmbedFonts, AsposePdfUnembedFonts,
-            // AsposePdfOptimizeFileSize, AsposePdfDeleteTables, AsposePdfCropPages,
+            // AsposePdfOptimizeFileSize, AsposePdfDeleteTables, AsposePdfCropPages, AsposePdfReplaceTextEx,
             DownloadFile(json.fileNameResult, "application/pdf", params[0]);
         }
       }
@@ -669,6 +670,24 @@
           const marginPages = 5;
           transfer = [event.target.result];
           params = [event.target.result, ffile.name, marginPages, `Result${operation}.pdf`];
+          break;
+        case 'AsposePdfReplaceTextEx':
+          const findReplaceSpec = [
+                {
+                findText: 'Aspose',
+                replaceText: 'ASPOSE'
+                },
+                {
+                findText: 'PDF',
+                replaceText: 'pdf'
+                },
+                {
+                findText: 'ECMAScript',
+                replaceText: '\u200FScript'
+                }
+          ];
+          transfer = [event.target.result];
+          params = [event.target.result, ffile.name, findReplaceSpec, {alignment: "auto"}, `Result${operation}.pdf`];
           break;
         default:
           // AsposePdfOptimize, AsposePdfAddPageNum, AsposePdfConvertToGrayscale, AsposePdfAConvertToPDF,
