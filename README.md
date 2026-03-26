@@ -65,6 +65,7 @@ Add PDF processing, manipulation, and conversion features to your front-end appl
 ## Additional Utilities
 
 - **Repair** corrupted or damaged PDF files.
+- **Recover** structure and trims invalid data.
 - **Generate PDF** from TXT or image files.
 - **Optimize** document resources and structure.
 - **Product diagnostics**: retrieve library info, version, and capabilities.
