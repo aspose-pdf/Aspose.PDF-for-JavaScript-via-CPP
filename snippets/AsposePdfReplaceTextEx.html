@@ -20,7 +20,7 @@
   var ffileReplaceTextEx = function (e) {
     const file_reader = new FileReader();
     file_reader.onload = (event) => {
-      /*RReplace multiple text fragments in a PDF-file with alignment control and save the "ResultReplaceTextEx.pdf"*/
+      /*Replace multiple text fragments in a PDF-file with alignment control and save the "ResultReplaceTextEx.pdf"*/
       const json = AsposePdfReplaceTextEx(event.target.result, e.target.files[0].name, [{findText: 'Aspose',replaceText: 'ASPOSE'}], {alignment: "left"}, "ResultReplaceTextEx.pdf");
       if (json.errorCode == 0) document.getElementById('output').textContent = json.fileNameResult
       else document.getElementById('output').textContent = json.errorText;
