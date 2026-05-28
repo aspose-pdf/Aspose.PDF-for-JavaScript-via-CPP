@@ -102,6 +102,7 @@
       <option value="AsposePdfDeleteTextFooters">Delete text footers from a PDF-file</option>
       <option value="AsposePdfReplaceTextEx">Replace multiple text fragments in a PDF-file with alignment control</option>
       <option value="AsposePdfRecover">Recover a PDF-file structure and trims invalid data</option>
+      <option value="AsposePdfRebuildXrefAndTrailer">Rebuild a PDF-file cross-reference table and trailer structures</option>
 
     <optgroup label="Metadata PDF">
       <option value="AsposePdfSetInfo">Set info (metadata) in a PDF-file</option>
@@ -340,6 +341,7 @@
             // AsposePdfMergeLayers, AsposePdfFlatten, AsposePdfReplaceTextPages, AsposePdfMakeBooklet,
             // AsposePdfMakeNUp, AsposePdfDeleteBlankPages, AsposePdfAddStampPages, AsposePdfEmbedFonts, AsposePdfUnembedFonts,
             // AsposePdfOptimizeFileSize, AsposePdfDeleteTables, AsposePdfCropPages, AsposePdfReplaceTextEx, AsposePdfRecover,
+            // AsposePdfRebuildXrefAndTrailer,
             DownloadFile(json.fileNameResult, "application/pdf", params[0]);
         }
       }
@@ -697,6 +699,7 @@
           // AsposePdfFromTxt, AsposePdfFindHiddenText, AsposePdfDeleteHiddenText, AsposePdfDeleteWatermarks,
           // AsposePdfFlatten, AsposePdfMakeBooklet, AsposePdfDeleteBlankPages, AsposePdfEmbedFonts, AsposePdfUnembedFonts,
           // AsposePdfDeleteTables, AsposePdfDeleteTextHeaders, AsposePdfDeleteTextFooters, AsposePdfRecover,
+          // AsposePdfRebuildXrefAndTrailer,
           transfer = [event.target.result];
           params = [event.target.result, ffile.name, `Result${operation}.pdf`];
       }

@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <title>Aspose.PDF JS Examples</title>
+        <style>
+            body {
+                font-family: sans-serif;
+                line-height: 1.6;
+                padding: 20px;
+                max-width: 800px;
+                margin: auto;
+                background: #f4f4f4;
+            }
+            .card {
+                background: white;
+                padding: 15px;
+                margin-bottom: 10px;
+                border-radius: 8px;
+                border-left: 5px solid #007bff;
+                box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            }
+            a {
+                color: #007bff;
+                text-decoration: none;
+                font-weight: bold;
+            }
+            a:hover {
+                text-decoration: underline;
+            }
+            .status-bar {
+                background: #e7f3ff;
+                padding: 15px;
+                border-radius: 8px;
+                margin-bottom: 20px;
+                border-left: 5px solid #0d6efd;
+            }
+            .warning {
+                background: #ffc107;
+                border-left-color: #e0a800;
+                display: none;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="msg" class="status-bar">
+            <strong>System Status:</strong> Ready to test. For more details, check the
+            <a href="https://docs.aspose.com/pdf/javascript-cpp/installation/" target="_blank">Official Installation Guide</a>.
+        </div>
+        <h1>Aspose.PDF for JavaScript via C++</h1>
+        <div class="card">
+            <a href="example.html">Standard Mode (example.html)</a><br />Basic usage in the main thread. Simple but may
+            freeze the UI.
+        </div>
+        <div class="card">
+            <a href="example_worker.html">Web Worker Mode (example_worker.html)</a><br />Recommended. Runs processing in
+            a background thread for better performance.
+        </div>
+        <div class="card">
+            <a href="encrypt_lic.html">License Encryptor (encrypt_lic.html)</a><br />Tool to encrypt your .lic license
+            file for secure client-side use.
+        </div>
+        <script>
+            if (window.location.protocol === "file:") {
+                const msg = document.getElementById("msg");
+                msg.classList.add("warning");
+                msg.innerHTML =
+                    '<strong>Warning!</strong> You opened this file via "file://". WebAssembly will NOT work. Use a local server (http://localhost:8080) as described in the <a href="https://docs.aspose.com/pdf/javascript-cpp/installation/" target="_blank">Installation Guide</a>.';
+                msg.style.display = "block";
+            }
+        </script>
+    </body>
+</html>
