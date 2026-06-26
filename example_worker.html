@@ -116,6 +116,7 @@
       <option value="AsposePdfEncrypt">Encrypt a PDF-file</option>
       <option value="AsposePdfDecrypt">Decrypt a PDF-file</option>
       <option value="AsposePdfSignPKCS7">Sign a PDF-file with digital signatures</option>
+      <option value="AsposePdfSignPKCS7Detached">Sign a PDF-file with detached digital signatures</option>
       <option value="AsposePdfChangePassword">Change passwords of the PDF-file</option>
 
   </select>
@@ -332,7 +333,7 @@
             // AsposePdfAConvertToPDF, AsposePdfAddBackgroundImage, AsposePdfAddImage, AsposePdfAddPageNum,
             // AsposePdfAddStamp, AsposePdfAddTextHeaderFooter, AsposePdfConvertToGrayscale, AsposePdfDecrypt,
             // AsposePdfDeletePages, AsposePdfEncrypt, AsposePdfMerge2Files, AsposePdfOptimize,
-            // AsposePdfRotateAllPages, AsposePdfSetInfo, AsposePdfSignPKCS7,
+            // AsposePdfRotateAllPages, AsposePdfSetInfo, AsposePdfSignPKCS7, AsposePdfSignPKCS7Detached,
             // AsposePdfRemoveMetadata, AsposePdfChangePassword, AsposePdfOptimizeResource,
             // AsposePdfSetBackgroundColor, AsposePdfDeleteAnnotations, AsposePdfDeleteBookmarks,
             // AsposePdfDeleteAttachments, AsposePdfDeleteImages, AsposePdfDeleteJavaScripts,
@@ -540,6 +541,7 @@
           params = [event.target.result, ffile.name, fileNameStampPages, setBackgroundPages, setXIndent_Pages, setYIndent_Pages, setHeight_Pages, setWidth_Pages, rotation_Pages, setOpacityPages, numPagePages, `Result${operation}.pdf`];
           break;
         case 'AsposePdfSignPKCS7':
+        case 'AsposePdfSignPKCS7Detached':
           const pageNum = 1;
           const fileSign = '/test.pfx'; //see option #2 uploading additional files
           const pswSign = 'Pa$$w0rd2023';

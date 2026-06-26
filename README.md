@@ -28,7 +28,7 @@ Add PDF processing, manipulation, and conversion features to your front-end appl
 - **Secure PDF documents**:
   - Encrypt, decrypt, set or change passwords
   - Configure access permissions
-- **Digitally sign** PDFs using PKCS#7, validate and remove signatures.
+- **Digitally sign** PDFs using PKCS#7/PKCS#7 Detached, validate and remove signatures.
 - **Add or remove** watermarks, stamps, page numbers, headers/footers, background images.
 - **Flatten** PDF documents (forms, annotations, layers).
 - **Create booklets** or generate **N-Up layouts**.
