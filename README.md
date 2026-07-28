@@ -14,7 +14,7 @@ Add PDF processing, manipulation, and conversion features to your front-end appl
 
 - **Extract text** from PDF pages, including search via regular expressions and hidden text detection.
 - **Add or extract images** to and from PDF documents; remove or replace images when needed.
-- **Concatenate**, **split**, or **reorganize** PDF files; delete specific or blank pages.
+- **Concatenate**, **split**, or **reorganize** PDF files; delete specific or blank pages; reverse the page order.
 - **Linearize** PDF documents for web optimization and **optimize** internal structure and resources.
 - **Crop** PDF-pages.
 - **Convert** PDF documents to:
