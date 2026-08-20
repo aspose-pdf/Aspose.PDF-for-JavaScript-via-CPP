@@ -104,6 +104,7 @@
       <option value="AsposePdfRecover">Recover a PDF-file structure and trims invalid data</option>
       <option value="AsposePdfRebuildXrefAndTrailer">Rebuild a PDF-file cross-reference table and trailer structures</option>
       <option value="AsposePdfReversePages">Reverse the page order of a PDF-file</option>
+      <option value="AsposePdfReorderPages">Reorder pages in a PDF-file</option>
 
     <optgroup label="Metadata PDF">
       <option value="AsposePdfSetInfo">Set info (metadata) in a PDF-file</option>
@@ -343,7 +344,7 @@
             // AsposePdfMergeLayers, AsposePdfFlatten, AsposePdfReplaceTextPages, AsposePdfMakeBooklet,
             // AsposePdfMakeNUp, AsposePdfDeleteBlankPages, AsposePdfAddStampPages, AsposePdfEmbedFonts, AsposePdfUnembedFonts,
             // AsposePdfOptimizeFileSize, AsposePdfDeleteTables, AsposePdfCropPages, AsposePdfReplaceTextEx, AsposePdfRecover,
-            // AsposePdfRebuildXrefAndTrailer, AsposePdfReversePages
+            // AsposePdfRebuildXrefAndTrailer, AsposePdfReversePages, AsposePdfReorderPages
             DownloadFile(json.fileNameResult, "application/pdf", params[0]);
         }
       }
@@ -454,6 +455,11 @@
           const numPages = 1; //number, number page
           transfer = [event.target.result];
           params = [event.target.result, ffile.name, `Result${operation}.pdf`, numPages];
+          break;
+        case 'AsposePdfReorderPages':
+          const reorderNumPages = [3,2,1]; //array, source page numbers in the desired order, 1-based
+          transfer = [event.target.result];
+          params = [event.target.result, ffile.name, `Result${operation}.pdf`, reorderNumPages];
           break;
         case 'AsposePdfPagesToJpg':
         case 'AsposePdfExtractImage':
