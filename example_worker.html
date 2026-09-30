@@ -105,6 +105,7 @@
       <option value="AsposePdfRebuildXrefAndTrailer">Rebuild a PDF-file cross-reference table and trailer structures</option>
       <option value="AsposePdfReversePages">Reverse the page order of a PDF-file</option>
       <option value="AsposePdfReorderPages">Reorder pages in a PDF-file</option>
+      <option value="AsposePdfRedactText">Permanently redact and black out sensitive text in a PDF-file</option>
 
     <optgroup label="Metadata PDF">
       <option value="AsposePdfSetInfo">Set info (metadata) in a PDF-file</option>
@@ -344,7 +345,7 @@
             // AsposePdfMergeLayers, AsposePdfFlatten, AsposePdfReplaceTextPages, AsposePdfMakeBooklet,
             // AsposePdfMakeNUp, AsposePdfDeleteBlankPages, AsposePdfAddStampPages, AsposePdfEmbedFonts, AsposePdfUnembedFonts,
             // AsposePdfOptimizeFileSize, AsposePdfDeleteTables, AsposePdfCropPages, AsposePdfReplaceTextEx, AsposePdfRecover,
-            // AsposePdfRebuildXrefAndTrailer, AsposePdfReversePages, AsposePdfReorderPages
+            // AsposePdfRebuildXrefAndTrailer, AsposePdfReversePages, AsposePdfReorderPages, AsposePdfRedactText
             DownloadFile(json.fileNameResult, "application/pdf", params[0]);
         }
       }
@@ -700,6 +701,11 @@
           ];
           transfer = [event.target.result];
           params = [event.target.result, ffile.name, findReplaceSpec, {alignment: "auto"}, `Result${operation}.pdf`];
+          break;
+        case 'AsposePdfRedactText':
+          const searchPattern = 'aspose';
+          transfer = [event.target.result];
+          params = [event.target.result, ffile.name, searchPattern, `Result${operation}.pdf`];
           break;
         default:
           // AsposePdfOptimize, AsposePdfAddPageNum, AsposePdfConvertToGrayscale, AsposePdfAConvertToPDF,

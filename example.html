@@ -339,6 +339,10 @@
         <label for="fileReorderPages">REORDER<span class="tooltip">Reorder pages in a PDF-file</span></label>
         <input type="file" id="fileReorderPages" accept="application/pdf" onchange="ffileReorderPages(event)">
       </div>
+      <div class="column">
+        <label for="fileRedactText">REDACT<span class="tooltip">Permanently redact and black out sensitive text in a PDF-file</span></label>
+        <input type="file" id="fileRedactText" accept="application/pdf" onchange="ffileRedactText(event)">
+      </div>
     </div>
   </div>
 
@@ -1449,6 +1453,17 @@
       // Source page numbers in the desired order, 1-based
       const numPages = [3,2,1];
       const json = AsposePdfReorderPages(event.target.result, e.target.files[0].name, "ResultReorderPages.pdf", numPages);
+      if (json.errorCode == 0) document.getElementById('output').textContent = json.fileNameResult;
+      else document.getElementById('output').textContent = json.errorText;
+      DownloadFile(json.fileNameResult, "application/pdf");
+    }
+    file_reader.readAsArrayBuffer(e.target.files[0]);
+  }
+
+  var ffileRedactText = function (e) {
+    const file_reader = new FileReader();
+    file_reader.onload = (event) => {
+      const json = AsposePdfRedactText(event.target.result, e.target.files[0].name, "Aspose", "ResultPdfRedactText.pdf");
       if (json.errorCode == 0) document.getElementById('output').textContent = json.fileNameResult;
       else document.getElementById('output').textContent = json.errorText;
       DownloadFile(json.fileNameResult, "application/pdf");
