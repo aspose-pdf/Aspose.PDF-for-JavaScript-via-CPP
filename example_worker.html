@@ -120,6 +120,7 @@
       <option value="AsposePdfDecrypt">Decrypt a PDF-file</option>
       <option value="AsposePdfSignPKCS7">Sign a PDF-file with digital signatures</option>
       <option value="AsposePdfSignPKCS7Detached">Sign a PDF-file with detached digital signatures</option>
+      <option value="AsposePdfRemoveSigns">Remove all digital signatures from a PDF-file</option>
       <option value="AsposePdfChangePassword">Change passwords of the PDF-file</option>
 
   </select>
@@ -345,7 +346,8 @@
             // AsposePdfMergeLayers, AsposePdfFlatten, AsposePdfReplaceTextPages, AsposePdfMakeBooklet,
             // AsposePdfMakeNUp, AsposePdfDeleteBlankPages, AsposePdfAddStampPages, AsposePdfEmbedFonts, AsposePdfUnembedFonts,
             // AsposePdfOptimizeFileSize, AsposePdfDeleteTables, AsposePdfCropPages, AsposePdfReplaceTextEx, AsposePdfRecover,
-            // AsposePdfRebuildXrefAndTrailer, AsposePdfReversePages, AsposePdfReorderPages, AsposePdfRedactText
+            // AsposePdfRebuildXrefAndTrailer, AsposePdfReversePages, AsposePdfReorderPages, AsposePdfRedactText,
+            // AsposePdfRemoveSigns,
             DownloadFile(json.fileNameResult, "application/pdf", params[0]);
         }
       }
@@ -714,7 +716,7 @@
           // AsposePdfFromTxt, AsposePdfFindHiddenText, AsposePdfDeleteHiddenText, AsposePdfDeleteWatermarks,
           // AsposePdfFlatten, AsposePdfMakeBooklet, AsposePdfDeleteBlankPages, AsposePdfEmbedFonts, AsposePdfUnembedFonts,
           // AsposePdfDeleteTables, AsposePdfDeleteTextHeaders, AsposePdfDeleteTextFooters, AsposePdfRecover,
-          // AsposePdfRebuildXrefAndTrailer, AsposePdfReversePages
+          // AsposePdfRebuildXrefAndTrailer, AsposePdfReversePages, AsposePdfRemoveSigns
           transfer = [event.target.result];
           params = [event.target.result, ffile.name, `Result${operation}.pdf`];
       }
