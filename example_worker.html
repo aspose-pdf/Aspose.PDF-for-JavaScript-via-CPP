@@ -118,10 +118,11 @@
     <optgroup label="Security PDF">
       <option value="AsposePdfEncrypt">Encrypt a PDF-file</option>
       <option value="AsposePdfDecrypt">Decrypt a PDF-file</option>
+      <option value="AsposePdfChangePassword">Change passwords of the PDF-file</option>
       <option value="AsposePdfSignPKCS7">Sign a PDF-file with digital signatures</option>
       <option value="AsposePdfSignPKCS7Detached">Sign a PDF-file with detached digital signatures</option>
       <option value="AsposePdfRemoveSigns">Remove all digital signatures from a PDF-file</option>
-      <option value="AsposePdfChangePassword">Change passwords of the PDF-file</option>
+      <option value="AsposePdfVerifySigns">Verify the validity of digital signatures in a PDF-file</option>
 
   </select>
   <input type="file" id="fileOperation" accept="application/pdf" disabled onChange="ffileOperation(event);">
@@ -333,6 +334,11 @@
             for (let fileIndex = 0; fileIndex < json.filesCount; fileIndex++)
               DownloadFile(json.filesNameResult[fileIndex], "application/pdf", params[fileIndex]);
             break;
+          case 'AsposePdfVerifySigns':
+            let listSigns = 'Signs:';
+            json.signs.forEach(({signName, signStatus}) => listSigns += `\n${signName} - ${signStatus}`);
+            document.getElementById('output').textContent = listSigns;
+            break;
           default:
             // AsposePdfAConvertToPDF, AsposePdfAddBackgroundImage, AsposePdfAddImage, AsposePdfAddPageNum,
             // AsposePdfAddStamp, AsposePdfAddTextHeaderFooter, AsposePdfConvertToGrayscale, AsposePdfDecrypt,
@@ -376,6 +382,7 @@
         case 'AsposePdfGetAllFonts':
         case 'AsposePdfGetWordsCharactersCount':
         case 'AsposePdfGetPagesLayers':
+        case 'AsposePdfVerifySigns':
           transfer = [event.target.result];
           params = [event.target.result, ffile.name];
           break;
